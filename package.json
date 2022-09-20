@@ -4,9 +4,7 @@
   "scripts": {
     "dev": "vite --host",
     "build": "vue-tsc --noEmit && vite build",
-    "serve": "vite preview",
-    "postinstall": "npm run build",
-    "start": "vite"
+    "serve": "vite preview"
   },
   "dependencies": {
     "@sanity/block-tools": "^2.33.2",
