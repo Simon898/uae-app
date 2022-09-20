@@ -5,7 +5,7 @@
     "dev": "vite --host",
     "build": "vue-tsc --noEmit && vite build",
     "serve": "vite preview",
-    "start": "vite --host"
+    "start": "vite preview"
   },
   "dependencies": {
     "@sanity/block-tools": "^2.33.2",
