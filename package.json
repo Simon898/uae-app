@@ -4,13 +4,16 @@
   "scripts": {
     "dev": "vite --host",
     "build": "vue-tsc --noEmit && vite build",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "start": "node index.js"
   },
   "dependencies": {
     "@sanity/block-tools": "^2.33.2",
     "@sanity/client": "^3.4.1",
     "@vueuse/head": "^0.7.9",
+    "express": "^4.18.1",
     "sanity-blocks-vue-component": "^1.0.1",
+    "serve-static": "^1.15.0",
     "vue": "^3.2.38",
     "vue-router": "^4.1.5",
     "vue-sanity": "^0.12.0"
