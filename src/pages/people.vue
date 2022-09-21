@@ -25,12 +25,12 @@
         <div class="rounded-lg border-0 shadow-md hover:shadow-xl">
           <img
             :src="imageUrlFor(item.picPerson)"
-            class="m-3 mx-auto rounded-lg"
+            class="m-3 mx-auto rounded-lg h-64"
           />
           
             <p class="m-3 font-light text-gray-700">{{ item.name }}</p>
           
-          <div class="m-3 font-light text-gray-500">
+          <div class="m-3 font-light text-gray-500 h-36">
             <SanityBlocks :blocks="item.objective1" />
           </div>
           <router-link :to="`/${item._id}`">
@@ -47,39 +47,6 @@
         </div>
       </body>
     </div>
-    <!-- <div class="container mx-auto mt-5">
-    <div class="flex justify-center">
-      <div
-        v-show="isOpen"
-        class="
-          absolute
-          inset-0
-          flex
-          items-center
-          justify-center
-          bg-gray-700 bg-opacity-50
-        "
-      >
-        <div class="max-w-2xl p-6 bg-white rounded-md shadow-xl">
-          <div class="flex items-center justify-between">
-            
-          </div>
-          <div v-for="item2 in items1" :key="item2.id" class="mt-4">
-            <h1>{{item2.name}}</h1>
-            <div class="mb-4 text-sm">
-              <SanityBlocks :blocks="item2.objective" />
-            </div>
-            <button
-              @click="isOpen = false"
-              class="px-6 py-2 text-blue-300 border border-blue-300 rounded"
-            >
-              Cancel
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> -->
   </div>
 </template>
 
