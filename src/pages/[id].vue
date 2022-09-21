@@ -24,7 +24,7 @@
     <img class="w-5 h-5" alt="Return" src="./left-arrow-svgrepo-com.svg" />
    </router-link>
     <body v-for="item in items1" :key="item.id">
-      <div class="rounded-lg border-0 shadow-md hover:shadow-xl">
+      <div class="rounded-lg border-0">
         <p
           class="text-center text-2xl font-light text-gray-700"
           v-if="item._id == $route.params.id"

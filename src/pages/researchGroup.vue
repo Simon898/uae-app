@@ -30,7 +30,7 @@
           <a :href="item.link" target="_blank">
             <img
               :src="imageUrlFor(item.picGroup)"
-              class="relative mx-auto p-10"
+              class="relative mx-auto p-10 h-80"
             />
             <h1 class="absolute top-5 left-5 text-2xl text-gray-500">
               {{ item.title }}
