@@ -1,11 +1,3 @@
-<route lang="json">
-{
-  "meta": {
-    "title": "Home"
-  }
-}
-</route>
-
 <script>
 import sanity from "../../client";
 import imageUrlBuilder from "@sanity/image-url";
@@ -52,8 +44,6 @@ export default {
       sanity.fetch(query).then(
         (items1) => {
           this.loading = false;
-          // items1.sort((a, b) => a.frontenddist - b.frontenddist);
-          console.log(items1)
           this.items1 = items1;
         },
         (error) => {
@@ -68,24 +58,24 @@ export default {
 <template>
   <div>
     <div class="bg-gray-50">
-    <div
-      class="mx-auto max-w-screen-xl px-4 py-12 sm:px-6 lg:flex lg:items-center lg:justify-between lg:py-16 lg:px-8"
-    >
-      <h2
-        class="text-3xl font-extrabold leading-9 tracking-tight text-gray-600 sm:text-4xl sm:leading-10"
+      <div
+        class="mx-auto max-w-screen-xl px-4 py-4 sm:px-6 lg:flex lg:items-center lg:justify-between lg:py-4 lg:px-8"
       >
-        Mohammed Bin Zayed
-        <br />
-
-        <span class="text-gray-400"
-          >University of <br />
-          Artificial Inteligance</span
+        <h2
+          class="text-3xl font-extrabold leading-9 tracking-tight text-gray-600 sm:text-4xl sm:leading-10"
         >
-      </h2>
-      <div>
-        <ButtonRepo />
+          Mohammed Bin Zayed
+          <br />
+
+          <span class="text-gray-400"
+            >University of <br />
+            Artificial Inteligance</span
+          >
+        </h2>
+        <div>
+          <ButtonRepo />
+        </div>
       </div>
-    </div>
   </div>
     <body v-for="item in items1" :key="item.id">
       <h1 class="text-center text-3xl m-10 font-light leading-6 text-gray-600">{{item.title}}</h1>

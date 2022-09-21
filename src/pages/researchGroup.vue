@@ -2,7 +2,7 @@
   <div>
     <div class="bg-gray-50">
       <div
-        class="mx-auto max-w-screen-xl px-4 py-12 sm:px-6 lg:flex lg:items-center lg:justify-between lg:py-16 lg:px-8"
+        class="mx-auto max-w-screen-xl px-4 py-4 sm:px-6 lg:flex lg:items-center lg:justify-between lg:py-4 lg:px-8"
       >
         <h2
           class="text-3xl font-extrabold leading-9 tracking-tight text-gray-600 sm:text-4xl sm:leading-10"
@@ -98,8 +98,6 @@ export default {
       sanity.fetch(query).then(
         (items1) => {
           this.loading = false;
-          // items1.sort((a, b) => a.frontenddist - b.frontenddist);
-          console.log(items1);
           this.items1 = items1;
         },
         (error) => {

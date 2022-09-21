@@ -2,7 +2,7 @@
   <div>
     <div class="bg-gray-50">
       <div
-        class="mx-auto max-w-screen-xl px-4 py-12 sm:px-6 lg:flex lg:items-center lg:justify-between lg:py-16 lg:px-8"
+        class="mx-auto max-w-screen-xl px-4 py-4 sm:px-6 lg:flex lg:items-center lg:justify-between lg:py-4 lg:px-8"
       >
         <h2
           class="text-3xl font-extrabold leading-9 tracking-tight text-gray-600 sm:text-4xl sm:leading-10"
@@ -21,7 +21,7 @@
       </div>
     </div>
     <router-link to="/people">
-    <img class="w-5 h-5" alt="Return" src="./left-arrow-svgrepo-com.svg" />
+    <img class="w-5 h-5 ml-5 mt-3" alt="Return" src="./left-arrow-svgrepo-com.svg" />
    </router-link>
     <body v-for="item in items1" :key="item.id">
       <div class="rounded-lg border-0">
