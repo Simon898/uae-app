@@ -1,30 +1,24 @@
 <template>
-  <div class="grid grid-rows-2 grid-flow-col sm:grid-rows-none gap-4 mt-3">
-  <div class="ml-3 inline-flex rounded-md shadow bg-white">
+  <div class="grid grid-cols-1 md:grid-flow-col text-center sm:grid-rows-none md:gap-10 mt-3">
+  <!-- <div class="ml-3 inline-flex rounded-md shadow bg-white"> -->
+    <div class="sm:inline text-gray-100 hover:underline hover:underline-offset-2 font-extrabold">
     <a
       href="/"
-      class="inline-flex items-center justify-center rounded-md border border-transparent bg-white mx-auto p-2 text-base font-medium leading-6 text-gray-600 transition duration-150 ease-in-out hover:text-gray-500 focus:outline-none"
+      class="sm:inline"
       >Home</a
     >
   </div>
-  <div class="ml-3 inline-flex rounded-md shadow bg-white">
-    <a
-      href="/about"
-      class="inline-flex items-center justify-center rounded-md border border-transparent bg-white mx-auto p-2 text-base font-medium leading-6 text-gray-600 transition duration-150 ease-in-out hover:text-gray-500 focus:outline-none"
-      >About</a
-    >
-  </div>
-  <div class="ml-3 inline-flex rounded-md shadow bg-white">
+  <div class="sm:inline text-gray-100 hover:underline hover:underline-offset-2 font-extrabold">
     <a
       href="/researchGroup"
-      class="inline-flex items-center justify-center rounded-md border border-transparent bg-white mx-auto p-2 text-base font-medium leading-6 text-gray-600 transition duration-150 ease-in-out hover:text-gray-500 focus:outline-none"
+      class=""
       >Research Group</a
     >
   </div>
-  <div class="ml-3 inline-flex rounded-md shadow bg-white">
+  <div class="sm:inline text-gray-100 hover:underline hover:underline-offset-2 font-extrabold">
     <a
       href="/people"
-      class="inline-flex items-center justify-center rounded-md border border-transparent bg-white mx-auto p-2 text-base font-medium leading-6 text-gray-600 transition duration-150 ease-in-out hover:text-gray-500 focus:outline-none"
+      class=""
       >People
       </a>
   </div>

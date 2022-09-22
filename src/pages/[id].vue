@@ -1,50 +1,52 @@
 <template>
   <div>
-    <div class="bg-gray-50">
+    <div
+      style="
+        background-image: url('https://mbzuai.ac.ae/wp-content/uploads/2022/07/hero_department-of-machine-learning.jpg');
+      "
+      class="bg-cover"
+    >
       <div
         class="mx-auto max-w-screen-xl px-4 py-4 sm:px-6 lg:flex lg:items-center lg:justify-between lg:py-4 lg:px-8"
       >
-        <h2
-          class="text-3xl font-extrabold leading-9 tracking-tight text-gray-600 sm:text-4xl sm:leading-10"
-        >
-          Mohammed Bin Zayed
-          <br />
-
-          <span class="text-gray-400"
-            >University of <br />
-            Artificial Inteligance</span
-          >
-        </h2>
+        <img src="./image-31.svg" class="" />
         <div>
           <ButtonRepo />
         </div>
       </div>
     </div>
     <router-link to="/people">
-    <img class="w-5 h-5 ml-5 mt-3" alt="Return" src="./left-arrow-svgrepo-com.svg" />
-   </router-link>
-    <body v-for="item in items1" :key="item.id">
-      <div class="rounded-lg border-0">
+      <img
+        class="ml-5 mt-3 h-5 w-5"
+        alt="Return"
+        src="./left-arrow-svgrepo-com.svg"
+      />
+    </router-link>
+    <body v-for="item in items1" :key="item.id" class="md:grid md:grid-cols-2">
+      <div>
+        <img
+          :src="imageUrlFor(item.picPerson)"
+          class="m-3 mx-auto rounded-lg"
+          v-if="item._id == $route.params.id"
+        />
+      </div>
+      <div>
         <p
           class="text-center text-2xl font-light text-gray-700"
           v-if="item._id == $route.params.id"
         >
           {{ item.name }}
         </p>
-        <img
-          :src="imageUrlFor(item.picPerson)"
-          class="m-3 mx-auto rounded-lg"
-          v-if="item._id == $route.params.id"
-        />
+      </div>
 
-        <div
-          v-if="item._id == $route.params.id"
-          class="mx-auto w-2/3 font-light text-gray-500"
-        >
-          <SanityBlocks :blocks="item.objective" />
-        </div>
+      <div
+        v-if="item._id == $route.params.id"
+        class="mx-auto p-4 font-light text-gray-500"
+      >
+        <SanityBlocks :blocks="item.objective" />
       </div>
     </body>
+    <Footer></Footer>
   </div>
 </template>
 
@@ -60,7 +62,12 @@ const query = `*[_type == "people"] {
   objective,
   link,
   objective1,
-  picPerson
+  picPerson,
+  education,
+  relLinks,
+  publications,
+  selectPublic,
+  research
 }`;
 
 export default {
@@ -98,6 +105,7 @@ export default {
       sanity.fetch(query).then(
         (items1) => {
           this.loading = false;
+          // console.log(items1);
           this.items1 = items1;
         },
         (error) => {

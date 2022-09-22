@@ -1,52 +1,52 @@
 <template>
   <div>
-    <div class="bg-gray-50">
+    <div
+      style="
+        background-image: url('https://mbzuai.ac.ae/wp-content/uploads/2022/07/hero_department-of-machine-learning.jpg');
+      "
+      class="bg-cover"
+    >
       <div
         class="mx-auto max-w-screen-xl px-4 py-4 sm:px-6 lg:flex lg:items-center lg:justify-between lg:py-4 lg:px-8"
       >
-        <h2
-          class="text-3xl font-extrabold leading-9 tracking-tight text-gray-600 sm:text-4xl sm:leading-10"
-        >
-          Mohammed Bin Zayed
-          <br />
-
-          <span class="text-gray-400"
-            >University of <br />
-            Artificial Inteligance</span
-          >
-        </h2>
+        <img src="./image-31.svg" class="" />
         <div>
           <ButtonRepo />
         </div>
       </div>
     </div>
-    <div class="m-3 p-3 md:grid md:grid-cols-3 md:gap-4">
-      <body v-for="item in items1" :key="item.id">
-        <div class="rounded-lg border-0 shadow-md hover:shadow-xl">
+    <div class="m-3 p-3 md:grid md:grid-cols-2 md:gap-4 lg:grid-cols-3 xl:grid-cols-4">
+      <body class="md:min-h-screen" v-for="item in items1" :key="item.id">
+        <div class="h-4/6 rounded-lg border-0 shadow-md hover:shadow-xl relative h-content w-content mt-5 sm:md-0">
           <img
             :src="imageUrlFor(item.picPerson)"
-            class="m-3 mx-auto rounded-lg h-64"
+            class="mx-auto h-72 w-full rounded-lg rounded-b-none"
           />
-          
-            <p class="m-3 font-light text-gray-700">{{ item.name }}</p>
-          
-          <div class="m-3 font-light text-gray-500 h-36">
-            <SanityBlocks :blocks="item.objective1" />
-          </div>
           <router-link :to="`/${item._id}`">
-          <div class="flex content-center justify-center p-3">
-            <button
-              class="rounded bg-gray-400 p-2 text-white shadow"
-              type="button"
-            >
-              More Info
-            </button>
-          
+            <p class="p-5 text-xl text-gray-600">{{ item.name }}</p>
+          </router-link>
+          <div class="pl-5">{{ item.position }}</div>
+          <div class="pl-5 text-blue-400">
+            {{ item.group }}
           </div>
-        </router-link>
+          <a :href="item.links.linkName">
+            <div class="mt-5 pl-3">
+              <div
+                class="m-2 inline w-1/4 rounded-lg border-2 border-l-8 border-l-green-600"
+              >
+                {{ item.links.linkShort }}
+              </div>
+            </div>
+          </a>
+          <div class="">
+         <div class="p-5 text-blue-500 bg-gray-100 absolute inset-x-0 bottom-0 h-16">
+          {{item.position}}
+         </div>
+        </div>
         </div>
       </body>
     </div>
+    <Footer></Footer>
   </div>
 </template>
 
@@ -59,8 +59,10 @@ const imageBuilder = imageUrlBuilder(sanity);
 const query = `*[_type == "people"] {
   _id,
   name,
+  position,
   objective,
-  link,
+  group,
+  links,
   objective1,
   picPerson
 }`;
@@ -100,6 +102,7 @@ export default {
       sanity.fetch(query).then(
         (items1) => {
           this.loading = false;
+          console.log(items1);
           this.items1 = items1;
         },
         (error) => {

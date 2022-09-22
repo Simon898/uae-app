@@ -1,26 +1,21 @@
 <template>
   <div>
-    <div class="bg-gray-50">
+    <!-- <div class="bg-gray-500"> -->
+      <div style="background-image: url('https://mbzuai.ac.ae/wp-content/uploads/2022/07/hero_department-of-machine-learning.jpg');"
+      class="bg-cover">
       <div
         class="mx-auto max-w-screen-xl px-4 py-4 sm:px-6 lg:flex lg:items-center lg:justify-between lg:py-4 lg:px-8"
       >
-        <h2
-          class="text-3xl font-extrabold leading-9 tracking-tight text-gray-600 sm:text-4xl sm:leading-10"
-        >
-          Mohammed Bin Zayed
-          <br />
-
-          <span class="text-gray-400"
-            >University of <br />
-            Artificial Inteligance</span
-          >
-        </h2>
+        <img
+          src="./image-31.svg"
+          class=""
+        />
         <div>
           <ButtonRepo />
         </div>
       </div>
     </div>
-    <body>
+    <body class="min-h-screen">
       <div class="grid md:grid-cols-3 md:gap-2">
         <div
           class="relative m-2 min-w-lg shadow hover:shadow-xl"
@@ -47,6 +42,7 @@
         </div>
       </div>
     </body>
+    <Footer></Footer>
   </div>
 </template>
 

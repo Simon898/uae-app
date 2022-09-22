@@ -2,6 +2,7 @@
 import sanity from "../../client";
 import imageUrlBuilder from "@sanity/image-url";
 import { SanityBlocks } from "sanity-blocks-vue-component";
+import Footer1 from "../components/Footer.vue";
 
 const imageBuilder = imageUrlBuilder(sanity);
 const query = `*[_type == "home"] {
@@ -13,6 +14,7 @@ const query = `*[_type == "home"] {
 export default {
   components: {
     SanityBlocks,
+    Footer1,
   },
   data: () => ({
     drawer: null,
@@ -57,32 +59,95 @@ export default {
 
 <template>
   <div>
-    <div class="bg-gray-50">
+    <div
+      style="
+        background-image: url('https://mbzuai.ac.ae/wp-content/uploads/2022/07/hero_department-of-machine-learning.jpg');
+      "
+      class="h-96 bg-cover"
+    >
       <div
         class="mx-auto max-w-screen-xl px-4 py-4 sm:px-6 lg:flex lg:items-center lg:justify-between lg:py-4 lg:px-8"
       >
-        <h2
-          class="text-3xl font-extrabold leading-9 tracking-tight text-gray-600 sm:text-4xl sm:leading-10"
-        >
-          Mohammed Bin Zayed
-          <br />
-
-          <span class="text-gray-400"
-            >University of <br />
-            Artificial Inteligance</span
-          >
-        </h2>
+        <img src="./image-31.svg" class="" />
         <div>
           <ButtonRepo />
         </div>
       </div>
-  </div>
+      <br />
+      <br />
+      <br />
+      <div
+        class="mx-auto max-w-screen-xl p-40 px-4 py-4 text-4xl font-bold text-gray-200 sm:px-6 lg:flex lg:items-center lg:justify-between lg:py-4 lg:px-8"
+      >
+        Machine learning department
+      </div>
+    </div>
     <body v-for="item in items1" :key="item.id">
-      <h1 class="text-center text-3xl m-10 font-light leading-6 text-gray-600">{{item.title}}</h1>
-
-      <span class="text-center text-2xl m-10 font-light leading-6 text-gray-600"><SanityBlocks :blocks="item.objective" /></span>
-
-      <img :src="imageUrlFor(item.picName)" class="bg-blue-800 p-10 mx-auto" />
+      <p
+        class="mx-auto mt-10 w-9/12 text-justify text-2xl font-light text-gray-600"
+      >
+        <span class="font-bold">
+          Machine learning researchers working at MBZUAI investigate the
+          development of algorithms which can improve automated cognition,
+          perception, and action with experience by observations.</span
+        >
+        <br /><br />
+        Our reseachers focus on both fundamental and applied research in machine
+        learning. This can be used for many enterprise applications (such as
+        business intelligence and analytics), effective web search, robotics,
+        smart cities, and understanding of the human genome.<br /><br />
+        Our students, supervised by our world-class faculty, get unique hands-on
+        experience by developing and evaluating algorithms on complex real
+        datasets. The university offers Ph.D. and master's degrees in machine
+        learning with exceptionally advanced courses and outcomes.
+      </p>
+      <!-- <span class="m-10 w-7/12 text-center text-2xl font-light text-gray-600"
+        ><SanityBlocks :blocks="item.objective"
+      /></span> -->
+      <div class="bg-gray-100">
+        <div class="mx-auto mt-5 w-9/12 gap-8 text-lg md:grid md:grid-cols-2">
+          <div>
+            <p class="m-5 font-extralight text-gray-600">
+              <span class="mt-5 text-2xl font-bold"> Chair's message </span>
+              <br />
+              The Machine Learning (ML) Department at MBZUAI is dedicated to
+              imparting a world-class education in ML to our students. From
+              foundational principles to advanced applications, our
+              research-intensive education model will provide our students
+              theoretical concepts to test under supervision from senior AI
+              researchers in the field as they tackle real-world problems and
+              produce meaningful results. It is the task of the ML Department to
+              engage in ML research by exposing our expert faculty, research
+              staff, and students to problems faced by industry partners, and
+              sponsored research. We leverage these relationships to ensure all
+              researchers have access to the latest technology, emerging
+              problems, and solutions. One of our main goals is creating
+              disruptive solutions and technologies, powered by AI, that unlock
+              the secrets of science across all areas.
+            </p>
+          </div>
+          <div class="p-10">
+            <img class="rounded-lg" src="./Le-Song_inn.jpeg" alt="" />
+            <p class="font-bold text-gray-500">
+              <br />
+              Le Song <br />
+              <span class="font-light">
+                Department Chair of Machine Learning, and Professor of Machine
+                Learning
+              </span>
+            </p>
+            <br />
+            <p class="font-light text-gray-500">
+              It is my commitment to establish the ML Department as a major hub
+              for ML expertise and solutions, not only in the region, but
+              globally. We do this by embracing emerging concepts and applying
+              sustainable ML algorithms to problems that we all face, in order
+              to maximize our efforts and produce AI for good.
+            </p>
+          </div>
+        </div>
+      </div>
     </body>
+    <Footer></Footer>
   </div>
 </template>

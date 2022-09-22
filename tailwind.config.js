@@ -8,6 +8,9 @@ module.exports = {
       fontFamily: {
         sans: ['"Inter var"', ...defaultTheme.fontFamily.sans],
       },
+      // backgroundImage: {
+      //   'hero-pattern': "url('/img/hero-pattern.svg')"
+      // }
     },
   },
   plugins: [
