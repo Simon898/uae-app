@@ -37,6 +37,11 @@ export default {
       title: "Webside link",
     },
     {
+      name: "email",
+      type: "string",
+      title: "Email Address",
+    },
+    {
       title: "Social links",
       name: "links",
       type: "object",

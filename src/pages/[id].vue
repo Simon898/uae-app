@@ -22,7 +22,11 @@
         src="./left-arrow-svgrepo-com.svg"
       />
     </router-link>
-    <body v-for="item in items1" :key="item.id" class="md:grid md:grid-cols-2">
+    <body
+      v-for="item in items1"
+      :key="item.id"
+      class="md:grid md:grid-cols-2 md:gap-4 bg-gray-50 md:mt-5"
+    >
       <div>
         <img
           :src="imageUrlFor(item.picPerson)"
@@ -32,20 +36,50 @@
       </div>
       <div>
         <p
-          class="text-center text-2xl font-light text-gray-700"
+          class="text-start text-2xl font-light text-gray-700"
           v-if="item._id == $route.params.id"
         >
           {{ item.name }}
         </p>
+        <p
+          v-if="item._id == $route.params.id"
+          class="mt-3 font-light text-gray-500"
+        >
+          {{ item.group }}
+        </p>
+        <a href="mailto:{{item.email}}">
+          <p
+            v-if="item._id == $route.params.id"
+            class="mt-3 font-light text-gray-500"
+          >
+            {{ item.email }}
+          </p>
+        </a>
+        <h2
+          v-if="item._id == $route.params.id"
+          class="mt-3 mb-3 text-2xl text-gray-700"
+        >
+          Education Profile
+        </h2>
+        <div class="w-11/12 text-gray-500 font-light">
+          <SanityBlocks :blocks="item.education" />
+        </div>
       </div>
-
+      </body>
+      <div v-for="item in items1" :key="item.id">
       <div
         v-if="item._id == $route.params.id"
-        class="mx-auto p-4 font-light text-gray-500"
+        class="mt-3 pl-12 font-light text-gray-500"
       >
-        <SanityBlocks :blocks="item.objective" />
+        <SanityBlocks :blocks="item.objective1" />
+        <h2 class="mt-3 mb-3 text-2xl text-gray-700">Research Interests</h2>
+        <SanityBlocks :blocks="item.research" />
+        <h2 class="mt-3 mb-3 text-2xl text-gray-700">Selected publications</h2>
+        <SanityBlocks :blocks="item.selectPublic" />
+        <h2 class="mt-3 mb-3 text-2xl text-gray-700">Publications</h2>
+        <SanityBlocks :blocks="item.publications" />
       </div>
-    </body>
+    </div>
     <Footer></Footer>
   </div>
 </template>
@@ -67,7 +101,9 @@ const query = `*[_type == "people"] {
   relLinks,
   publications,
   selectPublic,
-  research
+  research,
+  group,
+  email
 }`;
 
 export default {
@@ -105,7 +141,7 @@ export default {
       sanity.fetch(query).then(
         (items1) => {
           this.loading = false;
-          // console.log(items1);
+          console.log(items1);
           this.items1 = items1;
         },
         (error) => {

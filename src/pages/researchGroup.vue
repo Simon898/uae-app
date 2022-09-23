@@ -15,10 +15,13 @@
         </div>
       </div>
     </div>
+    <div class="border-b-2">
+      <h2 class="pt-10 pb-4 pl-10 text-3xl text-gray-600">Research Groups</h2>
+    </div>
     <body class="min-h-screen">
       <div class="grid md:grid-cols-3 md:gap-2">
         <div
-          class="relative m-2 min-w-lg shadow hover:shadow-xl"
+          class="relative m-2 min-w-lg shadow-lg hover:shadow-xl rounded"
           v-for="item in items1"
           :key="item.id"
         >
@@ -31,11 +34,11 @@
               {{ item.title }}
             </h1>
             <span
-              class="absolute bottom-3 left-1/2 m-5 w-full -translate-x-1/2 text-xl text-gray-800"
+              class="absolute bottom-3 left-1/2 mb-3 pl-10 w-full -translate-x-1/2 text-xl text-gray-800 bg-gray-300 opacity-60"
             >
               <SanityBlocks :blocks="item.objective" />
             </span>
-            <p class="text-md ml-5 text-gray-800">
+            <p class="text-md pl-10 text-gray-700 bg-gray-300 opacity-60">
               Professor {{ item.professor }}
             </p>
           </a>
