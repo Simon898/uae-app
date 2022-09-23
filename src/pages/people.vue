@@ -17,7 +17,7 @@
     </div>
     <div class="m-3 p-3 md:grid md:grid-cols-2 md:gap-4 lg:grid-cols-3 xl:grid-cols-4">
       <body class="md:min-h-screen" v-for="item in items1" :key="item.id">
-        <div class="h-7/8 rounded-lg border-0 shadow-md hover:shadow-xl relative h-content w-content mt-5 sm:md-0">
+        <div class="h-3/4 rounded-lg border-0 shadow-md hover:shadow-xl relative h-content w-content mt-5 sm:md-0">
           <img
             :src="imageUrlFor(item.picPerson)"
             class="mx-auto h-72 w-full rounded-lg rounded-b-none"
