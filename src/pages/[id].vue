@@ -25,7 +25,7 @@
     <body
       v-for="item in items1"
       :key="item.id"
-      class="md:grid md:grid-cols-2 md:gap-4 bg-gray-50 md:mt-5"
+      class="md:grid md:grid-cols-2 md:gap-4 bg-gray-50 md:mt-2"
     >
       <div>
         <img
