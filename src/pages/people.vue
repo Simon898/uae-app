@@ -21,11 +21,11 @@
     <option value="Allpeople">All people</option>
     <option value="Professors">Professors</option>
     <option value="Students">Students</option>
-    <option value="Researchscientists">Research scientists</option>
+    <option value="ResearchScientists">Research scientists</option>
     <option value="UniversityAffiliate">University Affiliate</option>
     <option value="Postdoctoral">Postdoctoral Fellow</option>
     <option value="Adminstaff">Administrative Staff</option>
-    <option value="Formermember">Former Members</option>
+    <option value="FormerMemeber">Former Members</option>
     <option value="Alumni">Alumni</option>
   </select>
     </div>
