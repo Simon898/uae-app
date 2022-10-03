@@ -15,8 +15,23 @@
         </div>
       </div>
     </div>
+    <div class="text-gray-600 font-light text-xl p-2">
+      Filter:
+      <select v-model="people" class="rounded-lg">
+    <option value="Allpeople">All people</option>
+    <option value="Professors">Professors</option>
+    <option value="Students">Students</option>
+    <option value="Researchscientists">Research scientists</option>
+    <option value="UniversityAffiliate">University Affiliate</option>
+    <option value="Postdoctoral">Postdoctoral Fellow</option>
+    <option value="Adminstaff">Administrative Staff</option>
+    <option value="Formermember">Former Members</option>
+    <option value="Alumni">Alumni</option>
+  </select>
+    </div>
     <div class="m-3 p-3 md:grid md:grid-cols-2 md:gap-4 lg:grid-cols-3 xl:grid-cols-4">
-      <body class="md:min-h-screen" v-for="item in items1" :key="item.id">
+      <!-- <p>{{computed_items}}</p> -->
+      <body class="md:min-h-screen" v-for="item in computed_items" :key="item.id">
         <div class="h-3/4 rounded-lg border-0 shadow-md hover:shadow-xl relative h-content w-content mt-5 sm:md-0">
           <img
             :src="imageUrlFor(item.picPerson)"
@@ -62,6 +77,7 @@ const query = `*[_type == "people"] {
   position,
   objective,
   group,
+  sort,
   links,
   objective1,
   picPerson
@@ -73,7 +89,7 @@ export default {
   },
   data: () => ({
     drawer: null,
-    selectedItem: undefined,
+    people: 'Allpeople',
     choosen: -1,
     model: 0,
     model1: undefined,
@@ -111,6 +127,23 @@ export default {
       );
     },
   },
+  computed: {
+    computed_items: function () {
+      let filterType= this.people
+      return this.items1.filter(function(item){
+        let filtered = true
+        console.log(filterType)
+        if(filterType!==item.sort){
+          filtered = item.type == filterType
+          console.log(filterType)
+        }
+        if (filterType=='Allpeople') {
+          filtered = item
+        }
+        return filtered
+      })
+    }
+  }
 };
 </script>
 

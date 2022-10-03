@@ -27,6 +27,23 @@ export default {
         Rule.max(120).warning(`A title shouldn't be more than 120 characters.`),
     },
     {
+      title: 'Sorting',
+      name: 'sort',
+      type: 'string',
+      options: {
+        list: [
+          "Professors",
+          "Students",
+          "ResearchScientists",
+          "Postdoctoral",
+          "AdminStaff",
+          "FormerMemeber",
+          "UniversityAffiliate",
+          "Alumni"
+        ],
+      }
+    },
+    {
       name: "group",
       type: "string",
       title: "Group",

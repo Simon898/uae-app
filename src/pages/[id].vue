@@ -57,11 +57,12 @@
         </a>
         <h2
           v-if="item._id == $route.params.id"
-          class="mt-3 mb-3 text-2xl text-gray-700"
+          class="mt-3 mb-3 p-2 text-2xl text-gray-700"
         >
           Education Profile
         </h2>
-        <div class="w-11/12 text-gray-500 font-light">
+        <div class="w-11/12 text-gray-500 font-light p-2"
+        v-if="item._id == $route.params.id">
           <SanityBlocks :blocks="item.education" />
         </div>
       </div>

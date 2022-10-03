@@ -1,26 +1,25 @@
 <template>
-  <div class="grid grid-cols-1 md:grid-flow-col text-center sm:grid-rows-none md:gap-10 mt-3">
-  <!-- <div class="ml-3 inline-flex rounded-md shadow bg-white"> -->
-    <div class="sm:inline text-gray-100 hover:underline hover:underline-offset-2 font-extrabold">
-    <a
-      href="/"
-      class="sm:inline"
-      >Home</a
+  <div
+    class="mt-3 grid grid-cols-1 text-center sm:grid-rows-none md:grid-flow-col md:gap-10"
+  >
+    <!-- <div class="ml-3 inline-flex rounded-md shadow bg-white"> -->
+    <div
+      class="font-extrabold text-gray-100 hover:underline hover:underline-offset-2 sm:inline"
     >
-  </div>
-  <div class="sm:inline text-gray-100 hover:underline hover:underline-offset-2 font-extrabold">
-    <a
-      href="/researchGroup"
-      class=""
-      >Research Group</a
+      <router-link to="/" class="sm:inline">Home</router-link>
+    </div>
+    <div
+      class="font-extrabold text-gray-100 hover:underline hover:underline-offset-2 sm:inline"
     >
+      <router-link to="/researchGroup" class="">Research Groups</router-link>
+    </div>
+    <div class="font-extrabold text-gray-100 sm:inline">
+      <router-link to="/people"
+        class="hover:underline hover:underline-offset-2"
+        >People
+      </router-link>
+    </div>
   </div>
-  <div class="sm:inline text-gray-100 hover:underline hover:underline-offset-2 font-extrabold">
-    <a
-      href="/people"
-      class=""
-      >People
-      </a>
-  </div>
-</div>
 </template>
+<script>
+</script>

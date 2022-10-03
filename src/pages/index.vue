@@ -77,7 +77,7 @@ export default {
       <br />
       <br />
       <div
-        class="mx-auto max-w-screen-xl p-40 px-4 py-4 text-4xl font-bold text-gray-200 sm:px-6 lg:flex lg:items-center lg:justify-between lg:py-4 lg:px-8"
+        class="mx-auto max-w-screen-xl ßp-40 px-4 py-4 text-4xl font-bold text-gray-200 sm:px-6 lg:flex lg:items-center lg:justify-between lg:py-4 lg:px-8"
       >
         Machine learning department
       </div>
