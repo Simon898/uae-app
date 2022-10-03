@@ -118,7 +118,6 @@ export default {
       sanity.fetch(query).then(
         (items1) => {
           this.loading = false;
-          console.log(items1);
           this.items1 = items1;
         },
         (error) => {
@@ -132,10 +131,8 @@ export default {
       let filterType= this.people
       return this.items1.filter(function(item){
         let filtered = true
-        console.log(filterType)
         if(filterType!==item.sort){
           filtered = item.type == filterType
-          console.log(filterType)
         }
         if (filterType=='Allpeople') {
           filtered = item
