@@ -22,21 +22,22 @@
         src="./left-arrow-svgrepo-com.svg"
       />
     </router-link>
+    <div v-for="item in items1"
+      :key="item.id">
     <body
-      v-for="item in items1"
-      :key="item.id"
+    v-if="item._id == $route.params.id"
       class="md:grid md:grid-cols-2 md:gap-4 bg-gray-50 md:mt-2"
     >
       <div>
         <img
-          :src="imageUrlFor(item.picPerson)"
+          :src="imageUrlFor(item.picPersonIn)"
           class="m-3 mx-auto rounded-lg"
-          v-if="item._id == $route.params.id"
+          v-if="item._id == $route.params.id && item.picPersonIn"
         />
       </div>
       <div>
         <p
-          class="text-start text-2xl font-light text-gray-700"
+          class="pl-5 text-start text-2xl font-light text-gray-700"
           v-if="item._id == $route.params.id"
         >
           {{ item.name }}
@@ -57,20 +58,21 @@
         </a>
         <h2
           v-if="item._id == $route.params.id"
-          class="mt-3 mb-3 p-2 text-2xl text-gray-700"
+          class="mt-3 mb-3 pl-5 text-2xl text-gray-700"
         >
           Education Profile
         </h2>
-        <div class="w-11/12 text-gray-500 font-light p-2"
+        <div class="w-11/12 text-gray-500 font-light pl-5"
         v-if="item._id == $route.params.id">
           <SanityBlocks :blocks="item.education" />
         </div>
       </div>
       </body>
+    </div>
       <div v-for="item in items1" :key="item.id">
       <div
         v-if="item._id == $route.params.id"
-        class="mt-3 pl-12 font-light text-gray-500"
+        class="mt-3 pl-5 font-light text-gray-500"
       >
         <SanityBlocks :blocks="item.objective1" />
         <h2 class="mt-3 mb-3 text-2xl text-gray-700">Research Interests</h2>
@@ -98,6 +100,7 @@ const query = `*[_type == "people"] {
   link,
   objective1,
   picPerson,
+  picPersonIn,
   education,
   relLinks,
   publications,

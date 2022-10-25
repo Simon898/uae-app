@@ -29,13 +29,13 @@
     <option value="Alumni">Alumni</option>
   </select>
     </div>
-    <div class="m-3 p-3 md:grid md:grid-cols-2 md:gap-4 lg:grid-cols-3 xl:grid-cols-4">
+    <div class="p-3 md:grid md:grid-cols-2 md:gap-2 lg:grid-cols-3 xl:grid-cols-4">
       <!-- <p>{{computed_items}}</p> -->
-      <body class="md:min-h-screen" v-for="item in computed_items" :key="item.id">
-        <div class="h-3/4 rounded-lg border-0 shadow-md hover:shadow-xl relative h-content w-content mt-5 sm:md-0">
+      <body class="relative min-h-full" v-for="item in computed_items" :key="item.id">
+        <div class="rounded-lg border-0 shadow-md hover:shadow-xl w-content mt-5 sm:md-0">
           <img
-            :src="imageUrlFor(item.picPerson)"
-            class="mx-auto h-72 w-full rounded-lg rounded-b-none"
+            :src="imageUrlFor(item.picPersonIn)"
+            class="mx-auto md:h-72 md:w-full rounded-lg rounded-b-none"
           />
           <router-link :to="`/${item._id}`">
             <p class="p-5 text-xl text-gray-600">{{ item.name }}</p>
@@ -53,11 +53,11 @@
               </div>
             </div>
           </a>
-          <div class="">
-         <div class="p-5 text-blue-500 bg-gray-100 absolute inset-x-0 bottom-0 h-16">
-          {{item.position}}
+          <!-- <div class=""> -->
+         <div class="p-3 text-blue-500 bg-gray-100 mt-3 h-10">
+          {{item.sort}}
          </div>
-        </div>
+        <!-- </div> -->
         </div>
       </body>
     </div>
@@ -80,7 +80,7 @@ const query = `*[_type == "people"] {
   sort,
   links,
   objective1,
-  picPerson
+  picPersonIn
 }`;
 
 export default {

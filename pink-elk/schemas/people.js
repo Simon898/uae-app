@@ -82,6 +82,11 @@ export default {
       title: "Photo",
     },
     {
+      name: "picPersonIn",
+      type: "image",
+      title: "Photo Profile",
+    },
+    {
       name: "research",
       title: "Research Interests",
       type: "simpleBlockContent",
