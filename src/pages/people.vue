@@ -31,7 +31,7 @@
     </div>
     <div class="p-3 md:grid md:grid-cols-2 md:gap-2 lg:grid-cols-3 xl:grid-cols-4">
       <!-- <p>{{computed_items}}</p> -->
-      <body class="relative min-h-full" v-for="item in computed_items" :key="item.id">
+      <body class="" v-for="item in computed_items" :key="item.id">
         <div class="rounded-lg border-0 shadow-md hover:shadow-xl w-content mt-5 sm:md-0">
           <img
             :src="imageUrlFor(item.picPersonIn)"
@@ -40,7 +40,7 @@
           <router-link :to="`/${item._id}`">
             <p class="p-5 text-xl text-gray-600">{{ item.name }}</p>
           </router-link>
-          <div class="pl-5">{{ item.position }}</div>
+          <div class="pl-5 h-20">{{ item.position }}</div>
           <div class="pl-5 text-blue-400">
             {{ item.group }}
           </div>
@@ -80,7 +80,8 @@ const query = `*[_type == "people"] {
   sort,
   links,
   objective1,
-  picPersonIn
+  picPersonIn,
+  rank
 }`;
 
 export default {
@@ -119,6 +120,7 @@ export default {
         (items1) => {
           this.loading = false;
           this.items1 = items1;
+          items1.sort((a,b) => a.rank - b.rank);
         },
         (error) => {
           this.error = error;

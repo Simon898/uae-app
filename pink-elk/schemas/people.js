@@ -115,5 +115,10 @@ export default {
       name: "education",
       type: "simpleBlockContent",
     },
+    {
+      name: "rank",
+      type: "string",
+      title: "Webside position",
+    },
   ],
 };
