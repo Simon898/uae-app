@@ -11,14 +11,14 @@ export default {
       },
       {
         name: 'objective',
-        title: 'Cieľ a význam projektu',
+        title: 'Home page text',
         type: 'simpleBlockContent',
         
       },
       {
         name: 'picName',
         type: 'image',
-        title: 'Obrázok aplikácie',
+        title: 'Picture of application',
       },
     ]
   }

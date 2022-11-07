@@ -32,7 +32,7 @@
     <div class="p-3 md:grid md:grid-cols-2 md:gap-2 lg:grid-cols-3 xl:grid-cols-4">
       <!-- <p>{{computed_items}}</p> -->
       <body class="" v-for="item in computed_items" :key="item.id">
-        <div class="rounded-lg border-0 shadow-md hover:shadow-xl w-content mt-5 sm:md-0">
+        <div class="rounded-lg border-0 shadow-md hover:shadow-xl w-content mt-5 sm:md-0 max-w-lg">
           <img
             :src="imageUrlFor(item.picPersonIn)"
             class="mx-auto md:h-72 md:w-full rounded-lg rounded-b-none"
