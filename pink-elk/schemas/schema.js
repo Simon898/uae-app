@@ -8,9 +8,10 @@ import home from './home'
 import group from './groups'
 import about from './about'
 import people from './people'
+import news from './news'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
   name: 'default',
-  types: schemaTypes.concat([home, simpleBlockContent, group, about, people]),
+  types: schemaTypes.concat([home, simpleBlockContent, group, about, people, news]),
 })

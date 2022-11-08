@@ -14,12 +14,15 @@
       <router-link to="/researchGroup" class="">Research Groups</router-link>
     </div>
     <div class="font-extrabold text-gray-100 sm:inline">
-      <router-link to="/people"
-        class="hover:underline hover:underline-offset-2"
+      <router-link to="/people" class="hover:underline hover:underline-offset-2"
         >People
+      </router-link>
+    </div>
+    <div class="font-extrabold text-gray-100 sm:inline">
+      <router-link to="/news" class="hover:underline hover:underline-offset-2"
+        >News
       </router-link>
     </div>
   </div>
 </template>
-<script>
-</script>
+<script></script>
