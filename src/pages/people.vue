@@ -37,7 +37,7 @@
             :src="imageUrlFor(item.picPersonIn)"
             class="mx-auto md:h-72 md:w-full rounded-lg rounded-b-none"
           />
-          <router-link :to="`/${item._id}`">
+          <router-link :to="`${item._id}/${item._id}`">
             <p class="p-5 text-xl text-gray-600">{{ item.name }}</p>
           </router-link>
           <div class="pl-5 h-20">{{ item.position }}</div>

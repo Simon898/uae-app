@@ -34,7 +34,8 @@ declare module 'vue-router/auto/routes' {
   export interface RouteNamedMap {
     '/': RouteRecordInfo<'/', '/', Record<never, never>, Record<never, never>>,
     '/[...404]': RouteRecordInfo<'/[...404]', '/:404(.*)', { 404: ParamValue<true> }, { 404: ParamValue<false> }>,
-    '/[id]': RouteRecordInfo<'/[id]', '/:id', { id: ParamValue<true> }, { id: ParamValue<false> }>,
+    '/[id]/[id]': RouteRecordInfo<'/[id]/[id]', '/:id/:id', { id: ParamValue<true>, id: ParamValue<true> }, { id: ParamValue<false>, id: ParamValue<false> }>,
+    '/[id]/new': RouteRecordInfo<'/[id]/new', '/:id/new', { id: ParamValue<true> }, { id: ParamValue<false> }>,
     '/news': RouteRecordInfo<'/news', '/news', Record<never, never>, Record<never, never>>,
     '/people': RouteRecordInfo<'/people', '/people', Record<never, never>, Record<never, never>>,
     '/researchGroup': RouteRecordInfo<'/researchGroup', '/researchGroup', Record<never, never>, Record<never, never>>,

@@ -15,54 +15,66 @@
         </div>
       </div>
     </div>
-    <h1 class="mt-5 text-center text-4xl font-thin text-gray-500">
-      University News
-    </h1>
-    <div class="flex content-center justify-center">
+    <div class="flex content-center justify-center mt-5 md:mt-10">
       <section class="w-10/12">
         <div v-for="item in items1.slice(0, 1)" :key="item.id">
           <div class="grid md:grid-cols-2">
             <div>
-              <h1 class="m-3 p-2 text-2xl font-bold text-gray-500">
+                <router-link :to="`${item._id}/new`">
+              <h1 class="m-3 p-2 text-2xl font-bold text-gray-500 hover:underline hover:underline-offset-2">
                 {{ item.title }}
               </h1>
+            </router-link>
               <h3 class="m-3 p-2 text-xl font-light text-gray-600">
                 {{ item.shorttext }}
               </h3>
-              <button
-                class="m-3 border-2 border-blue-300 p-2 text-blue-300 hover:border-blue-400 hover:text-blue-400"
-              >
-                Read more ...
-              </button>
+              <router-link :to="`${item._id}/new`">
+                <button
+                  class="m-3 border-2 border-blue-300 p-2 text-blue-300 hover:border-blue-400 hover:text-blue-400"
+                >
+                  Read more ...
+                </button>
+              </router-link>
             </div>
             <div>
               <img
                 :src="imageUrlFor(item.picGroup)"
-                class="md:h-8/12 m-3 mx-auto rounded-xl p-2 md:w-10/12"
+                class="md:h-8/12 m-3 mx-auto rounded-xl md:w-10/12 shadow-md"
               />
             </div>
           </div>
         </div>
-        <div class="grid grid-cols-2 md:grid-cols-3">
-        <div v-for="item in items1.slice(1)" :key="item.id">
-          
-            <div>
+       
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
+          <div v-for="item in items1.slice(1)" :key="item.id">
+            <div class="border-2 border-gray-200 rounded-xl md:mt-5">
               <img
                 :src="imageUrlFor(item.picGroup)"
-                class="m-3 mx-auto rounded-xl p-2"
+                class="rounded-xl rounded-b-none"
               />
-              <h1 class="m-3 p-2 font-semibold text-gray-600">{{item.title}}</h1>
-              <h2 class="m-3 p-2 font-light text-gray-600">{{item.shorttext}}</h2>
+              <router-link :to="`${item._id}/new`">
+              <h1 class="m-3 p-2 font-semibold text-gray-600 hover:underline-offset-2 hover:underline">
+                {{ item.title }}
+              </h1>
+            </router-link>
+              <h2 class="m-3 p-2 font-light text-gray-600">
+                {{ item.shorttext }}
+              </h2>
+              <router-link :to="`${item._id}/new`">
               <button
-                class="border-2 border-blue-300 p-2 m-3 text-blue-300 hover:border-blue-400 hover:text-blue-400"
+                class="m-3 border-2 border-blue-300 p-2 text-blue-300 hover:border-blue-400 hover:text-blue-400 rounded-lg"
               >
                 Read more ...
               </button>
+            </router-link>
             </div>
           </div>
         </div>
       </section>
     </div>
+    <div class="mt-5">
+    <Footer></Footer>
+</div>
   </div>
 </template>
 

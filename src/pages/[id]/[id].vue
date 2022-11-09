@@ -9,7 +9,7 @@
       <div
         class="mx-auto max-w-screen-xl px-4 py-4 sm:px-6 lg:flex lg:items-center lg:justify-between lg:py-4 lg:px-8"
       >
-        <img src="./image-31.svg" class="" />
+        <img src="../image-31.svg" class="" />
         <div>
           <ButtonRepo />
         </div>
@@ -19,7 +19,7 @@
       <img
         class="ml-5 mt-3 h-5 w-5"
         alt="Return"
-        src="./left-arrow-svgrepo-com.svg"
+        src="../left-arrow-svgrepo-com.svg"
       />
     </router-link>
     <div v-for="item in items1"
@@ -88,7 +88,7 @@
 </template>
 
 <script>
-import sanity from "../../client";
+import sanity from "../../../client";
 import imageUrlBuilder from "@sanity/image-url";
 import { SanityBlocks } from "sanity-blocks-vue-component";
 
