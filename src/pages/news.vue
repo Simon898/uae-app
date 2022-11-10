@@ -97,7 +97,7 @@
         Next
       </button>
     </div>
-    <div class="mt-5">
+    <div class="mt-5 md:mt-6">
       <Footer></Footer>
     </div>
   </div>
