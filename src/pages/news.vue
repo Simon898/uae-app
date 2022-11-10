@@ -78,6 +78,7 @@
     </div>
     <div class="mb-5 mt-5 flex content-center justify-center">
       <button
+        v-if="curPage != 1"
         class="m-2 rounded-lg border-2 border-gray-200 p-2 text-gray-500 shadow-md hover:border-gray-100 hover:text-gray-600"
         @click="backPage"
       >
@@ -85,6 +86,7 @@
       </button>
       <p class="ml-5 mr-5 my-auto text-xl text-gray-500">{{curPage}}</p>
       <button
+      v-if="items1.length > endNum"
         class="m-2 rounded-lg border-2 border-gray-200 p-2 text-gray-500 shadow-md hover:border-gray-100 hover:text-gray-600"
         @click="nextPage"
       >
