@@ -145,7 +145,6 @@ export default {
       sanity.fetch(query).then(
         (items1) => {
           this.loading = false;
-          console.log(items1);
           this.items1 = items1;
         },
         (error) => {

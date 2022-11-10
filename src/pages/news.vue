@@ -4,7 +4,7 @@
       style="
         background-image: url('https://mbzuai.ac.ae/wp-content/uploads/2022/07/hero_department-of-machine-learning.jpg');
       "
-      class="bg-cover sticky top-0"
+      class="sticky top-0 bg-cover"
     >
       <div
         class="mx-auto max-w-screen-xl px-4 py-4 sm:px-6 lg:flex lg:items-center lg:justify-between lg:py-4 lg:px-8"
@@ -48,7 +48,11 @@
         </div>
 
         <div class="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
-          <div v-for="item in items1.slice(1).slice(startNum,endNum)" :key="item.id">
+          <!-- <div v-for="item in items1.slice(1).slice(startNum,endNum)" :key="item.id"> -->
+          <div
+            v-for="item in filtered.slice(1).slice(startNum, endNum)"
+            :key="item.id"
+          >
             <div class="rounded-xl border-2 border-gray-200 md:mt-5">
               <img
                 :src="imageUrlFor(item.picGroup)"
@@ -84,9 +88,9 @@
       >
         Previous
       </button>
-      <p class="ml-5 mr-5 my-auto text-xl text-gray-500">{{curPage}}</p>
+      <p class="my-auto ml-5 mr-5 text-xl text-gray-500">{{ curPage }}</p>
       <button
-      v-if="items1.length > endNum"
+        v-if="items1.length > endNum"
         class="m-2 rounded-lg border-2 border-gray-200 p-2 text-gray-500 shadow-md hover:border-gray-100 hover:text-gray-600"
         @click="nextPage"
       >
@@ -138,14 +142,14 @@ export default {
       if (this.startNum > 1) {
         this.startNum = this.startNum - this.perpage;
         this.endNum = this.endNum - this.perpage;
-        this.curPage--
+        this.curPage--;
       }
     },
     nextPage() {
-      if (this.currentpage = 1 && this.items1.length>this.endNum) {
+      if ((this.currentpage = 1 && this.items1.length > this.endNum)) {
         this.startNum = this.startNum + this.perpage;
         this.endNum = this.endNum + this.perpage;
-        this.curPage++
+        this.curPage++;
       }
     },
     orderList(item) {

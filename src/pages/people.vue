@@ -79,7 +79,7 @@
       </button>
       <p class="my-auto ml-5 mr-5 text-xl text-gray-500">{{ curPage }}</p>
       <button
-        v-if="items1.length > endNum"
+        v-if="items1.length > endNum && computed_items.length>endNum-1"
         class="m-2 rounded-lg border-2 border-gray-200 p-2 text-gray-500 shadow-md hover:border-gray-100 hover:text-gray-600"
         @click="nextPage"
       >
