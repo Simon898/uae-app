@@ -50,7 +50,7 @@
         <div class="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
           <!-- <div v-for="item in items1.slice(1).slice(startNum,endNum)" :key="item.id"> -->
           <div
-            v-for="item in filtered.slice(1).slice(startNum, endNum)"
+            v-for="item in items1.slice(1).slice(startNum, endNum)"
             :key="item.id"
           >
             <div class="rounded-xl border-2 border-gray-200 md:mt-5">
