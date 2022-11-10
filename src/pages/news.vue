@@ -83,7 +83,7 @@
       >
         Previous
       </button>
-      <button></button>
+      <p class="ml-5 mr-5 my-auto text-xl text-gray-500">{{curPage}}</p>
       <button
         class="m-2 rounded-lg border-2 border-gray-200 p-2 text-gray-500 shadow-md hover:border-gray-100 hover:text-gray-600"
         @click="nextPage"
@@ -126,6 +126,7 @@ export default {
     startNum: 0,
     endNum: 3,
     perpage: 3,
+    curPage: 1,
   }),
   created() {
     this.fetchData();
@@ -135,14 +136,14 @@ export default {
       if (this.startNum > 1) {
         this.startNum = this.startNum - this.perpage;
         this.endNum = this.endNum - this.perpage;
-        console.log(this.startNum, this.endNum);
+        this.curPage--
       }
     },
     nextPage() {
       if (this.currentpage = 1 && this.items1.length>this.endNum) {
         this.startNum = this.startNum + this.perpage;
         this.endNum = this.endNum + this.perpage;
-        console.log(this.startNum, this.endNum);
+        this.curPage++
       }
     },
     orderList(item) {
