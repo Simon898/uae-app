@@ -4,7 +4,7 @@
       style="
         background-image: url('https://mbzuai.ac.ae/wp-content/uploads/2022/07/hero_department-of-machine-learning.jpg');
       "
-      class="bg-cover"
+      class="bg-cover sticky top-0"
     >
       <div
         class="mx-auto max-w-screen-xl px-4 py-4 sm:px-6 lg:flex lg:items-center lg:justify-between lg:py-4 lg:px-8"
@@ -15,16 +15,18 @@
         </div>
       </div>
     </div>
-    <div class="flex content-center justify-center mt-5 md:mt-10">
+    <div class="mt-5 flex content-center justify-center md:mt-10">
       <section class="w-10/12">
         <div v-for="item in items1.slice(0, 1)" :key="item.id">
           <div class="grid md:grid-cols-2">
             <div>
-                <router-link :to="`${item._id}/new`">
-              <h1 class="m-3 p-2 text-2xl font-bold text-gray-500 hover:underline hover:underline-offset-2">
-                {{ item.title }}
-              </h1>
-            </router-link>
+              <router-link :to="`${item._id}/new`">
+                <h1
+                  class="m-3 p-2 text-2xl font-bold text-gray-500 hover:underline hover:underline-offset-2"
+                >
+                  {{ item.title }}
+                </h1>
+              </router-link>
               <h3 class="m-3 p-2 text-xl font-light text-gray-600">
                 {{ item.shorttext }}
               </h3>
@@ -39,42 +41,59 @@
             <div>
               <img
                 :src="imageUrlFor(item.picGroup)"
-                class="md:h-8/12 m-3 mx-auto rounded-xl md:w-10/12 shadow-md"
+                class="md:h-8/12 m-3 mx-auto rounded-xl shadow-md md:w-10/12"
               />
             </div>
           </div>
         </div>
-       
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
-          <div v-for="item in items1.slice(1)" :key="item.id">
-            <div class="border-2 border-gray-200 rounded-xl md:mt-5">
+
+        <div class="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
+          <div v-for="item in items1.slice(1).slice(startNum,endNum)" :key="item.id">
+            <div class="rounded-xl border-2 border-gray-200 md:mt-5">
               <img
                 :src="imageUrlFor(item.picGroup)"
                 class="rounded-xl rounded-b-none"
               />
               <router-link :to="`${item._id}/new`">
-              <h1 class="m-3 p-2 font-semibold text-gray-600 hover:underline-offset-2 hover:underline">
-                {{ item.title }}
-              </h1>
-            </router-link>
+                <h1
+                  class="m-3 p-2 font-semibold text-gray-600 hover:underline hover:underline-offset-2"
+                >
+                  {{ item.title }}
+                </h1>
+              </router-link>
               <h2 class="m-3 p-2 font-light text-gray-600">
                 {{ item.shorttext }}
               </h2>
               <router-link :to="`${item._id}/new`">
-              <button
-                class="m-3 border-2 border-blue-300 p-2 text-blue-300 hover:border-blue-400 hover:text-blue-400 rounded-lg"
-              >
-                Read more ...
-              </button>
-            </router-link>
+                <button
+                  class="m-3 rounded-lg border-2 border-blue-300 p-2 text-blue-300 hover:border-blue-400 hover:text-blue-400"
+                >
+                  Read more ...
+                </button>
+              </router-link>
             </div>
           </div>
         </div>
       </section>
     </div>
+    <div class="mb-5 mt-5 flex content-center justify-center">
+      <button
+        class="m-2 rounded-lg border-2 border-gray-200 p-2 text-gray-500 shadow-md hover:border-gray-100 hover:text-gray-600"
+        @click="backPage"
+      >
+        Previous
+      </button>
+      <button></button>
+      <button
+        class="m-2 rounded-lg border-2 border-gray-200 p-2 text-gray-500 shadow-md hover:border-gray-100 hover:text-gray-600"
+        @click="nextPage"
+      >
+        Next
+      </button>
+    </div>
     <div class="mt-5">
-    <Footer></Footer>
-</div>
+      <Footer></Footer>
+    </div>
   </div>
 </template>
 
@@ -104,11 +123,28 @@ export default {
     model1: undefined,
     items1: [],
     isOpen: false,
+    startNum: 0,
+    endNum: 3,
+    perpage: 3,
   }),
   created() {
     this.fetchData();
   },
   methods: {
+    backPage() {
+      if (this.startNum > 1) {
+        this.startNum = this.startNum - this.perpage;
+        this.endNum = this.endNum - this.perpage;
+        console.log(this.startNum, this.endNum);
+      }
+    },
+    nextPage() {
+      if (this.currentpage = 1 && this.items1.length>this.endNum) {
+        this.startNum = this.startNum + this.perpage;
+        this.endNum = this.endNum + this.perpage;
+        console.log(this.startNum, this.endNum);
+      }
+    },
     orderList(item) {
       const prem = this.items1;
       for (let i = 0; i < prem.length; i++) {

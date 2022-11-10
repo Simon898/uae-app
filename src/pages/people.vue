@@ -4,7 +4,7 @@
       style="
         background-image: url('https://mbzuai.ac.ae/wp-content/uploads/2022/07/hero_department-of-machine-learning.jpg');
       "
-      class="bg-cover"
+      class="bg-cover sticky top-0"
     >
       <div
         class="mx-auto max-w-screen-xl px-4 py-4 sm:px-6 lg:flex lg:items-center lg:justify-between lg:py-4 lg:px-8"
@@ -31,7 +31,7 @@
     </div>
     <div class="p-3 md:grid md:grid-cols-2 md:gap-2 lg:grid-cols-3 xl:grid-cols-4">
       <!-- <p>{{computed_items}}</p> -->
-      <body class="" v-for="item in computed_items" :key="item.id">
+      <body class="" v-for="item in computed_items.slice(startNum,endNum)" :key="item.id">
         <div class="rounded-lg border-0 shadow-md hover:shadow-xl w-content mt-5 sm:md-0 max-w-lg">
           <img
             :src="imageUrlFor(item.picPersonIn)"
@@ -60,6 +60,18 @@
         <!-- </div> -->
         </div>
       </body>
+      
+    </div>
+    <div class="flex justify-center content-center mb-5 mt-5">
+      <button
+      class="border-2 border-gray-200 p-2 m-2 text-gray-500 shadow-md rounded-lg hover:border-gray-100 hover:text-gray-600"
+      @click="backPage">Previous</button>
+      <button
+      >
+      </button>
+      <button
+      class="border-2 border-gray-200 p-2 m-2 text-gray-500 shadow-md rounded-lg hover:border-gray-100 hover:text-gray-600"
+      @click="nextPage">Next</button>
     </div>
     <Footer></Footer>
   </div>
@@ -96,11 +108,32 @@ export default {
     model1: undefined,
     items1: [],
     isOpen: false,
+    startNum: 0,
+    endNum: 8,
+    perpage: 8,
   }),
   created() {
     this.fetchData();
   },
   methods: {
+    backPage() {
+      if (this.startNum>1) {
+        this.startNum = this.startNum-this.perpage
+        this.endNum=this.endNum-this.perpage
+        console.log(this.startNum, this.endNum)
+      }
+    },
+    nextPage() {
+      if (this.currentpage=1 && this.items1.length>this.endNum) {
+        this.startNum = this.startNum+this.perpage
+        this.endNum=this.endNum+this.perpage
+        console.log(this.startNum, this.endNum)
+      }
+    },
+
+    nextButton() {
+      return !(this.current-page + 1 < this.total-items);
+    },
     orderList(item) {
       const prem = this.items1;
       for (let i = 0; i < prem.length; i++) {
@@ -109,6 +142,9 @@ export default {
           return prem[i].frontenddist;
         }
       }
+    },
+    functionName() {
+      console.log("pagination")
     },
     imageUrlFor(source) {
       return imageBuilder.image(source);
