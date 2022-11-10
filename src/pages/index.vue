@@ -23,11 +23,41 @@ export default {
     model: 0,
     model1: undefined,
     items1: [],
+    changeNav: false,
+    showNavbar: true,
+    lastScrollPosition: 0,
   }),
+  mounted() {
+    window.addEventListener("scroll", this.onScroll);
+  },
+  beforeDestroy() {
+    window.removeEventListener("scroll", this.onScroll);
+  },
   created() {
     this.fetchData();
   },
   methods: {
+    onScroll() {
+      // Get the current scroll position
+      const currentScrollPosition =
+        window.pageYOffset || document.documentElement.scrollTop;
+      // Because of momentum scrolling on mobiles, we shouldn't continue if it is less than zero
+      if (currentScrollPosition < 0) {
+        return;
+      }
+      // Here we determine whether we need to show or hide the navbar
+      else if (currentScrollPosition == 0) {
+        this.changeNav = false;
+      }
+      else {
+      this.showNavbar = currentScrollPosition < this.lastScrollPosition;
+      this.changeNav = true;
+      console.log(currentScrollPosition)
+      // Set the current scroll position as the last scroll position
+      this.lastScrollPosition = currentScrollPosition;
+    }
+      
+    },
     orderList(item) {
       const prem = this.items1;
       for (let i = 0; i < prem.length; i++) {
@@ -36,6 +66,18 @@ export default {
           return prem[i].frontenddist;
         }
       }
+    },
+    scrollCounter1() {
+      if (document.documentElement.myScroll > 50) {
+        this.changeNav = true;
+        console.log(this.changeNav);
+      } else {
+        this.changeNav = false;
+        console.log(this.changeNav);
+      }
+    },
+    scrollCounter() {
+      console.log(this.changeNav);
     },
     imageUrlFor(source) {
       return imageBuilder.image(source);
@@ -60,10 +102,10 @@ export default {
 <template>
   <div>
     <div
+      v-if="!changeNav"
       style="
         background-image: url('https://mbzuai.ac.ae/wp-content/uploads/2022/07/hero_department-of-machine-learning.jpg');
       "
-      class="h-96 bg-cover"
     >
       <div
         class="mx-auto max-w-screen-xl px-4 py-4 sm:px-6 lg:flex lg:items-center lg:justify-between lg:py-4 lg:px-8"
@@ -77,9 +119,27 @@ export default {
       <br />
       <br />
       <div
-        class="mx-auto max-w-screen-xl ßp-40 px-4 py-4 text-4xl font-bold text-gray-200 sm:px-6 lg:flex lg:items-center lg:justify-between lg:py-4 lg:px-8"
+        class="ßp-40 mx-auto max-w-screen-xl px-4 py-4 text-4xl font-bold text-gray-200 sm:px-6 lg:flex lg:items-center lg:justify-between lg:py-4 lg:px-8"
+        id="myScroll"
       >
         Machine learning department
+      </div>
+    </div>
+    
+      <div
+      v-else
+      style="
+        background-image: url('https://mbzuai.ac.ae/wp-content/uploads/2022/07/hero_department-of-machine-learning.jpg');
+      "
+      class="bg-cover sticky top-0"
+    >
+      <div
+        class="mx-auto max-w-screen-xl px-4 py-4 sm:px-6 lg:flex lg:items-center lg:justify-between lg:py-4 lg:px-8"
+      >
+        <img src="./image-31.svg" class="" />
+        <div>
+          <ButtonRepo />
+        </div>
       </div>
     </div>
     <body v-for="item in items1" :key="item.id">
