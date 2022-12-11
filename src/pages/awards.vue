@@ -1,5 +1,5 @@
 <template>
-  <div
+    <div
       style="
         background-image: url('https://mbzuai.ac.ae/wp-content/uploads/2022/07/hero_department-of-machine-learning.jpg');
       "
@@ -14,10 +14,15 @@
         </div>
       </div>
     </div>
-</template>
-
-<script>
-export default {
-
-}
-</script>
+    <div class="flex justify-center content-center">
+      <h1 class="text-gray-600 text-3xl font-medium mt-10">
+          Honors and Awards page
+      </h1>
+    </div>
+  </template>
+  
+  <script>
+  export default {
+  
+  }
+  </script>
