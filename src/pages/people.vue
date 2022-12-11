@@ -49,6 +49,9 @@
             <p class="p-5 text-xl text-gray-600">{{ item.name }}</p>
           </router-link>
           <div class="h-20 pl-5">{{ item.position }}</div>
+          <div class="text-sm pl-5 pr-5 font-light h-auto md:h-40">
+          <SanityBlocks :blocks=item.research />
+          </div>
           <div class="pl-5 text-blue-400">
             {{ item.group }}
           </div>
@@ -79,7 +82,7 @@
       </button>
       <p class="my-auto ml-5 mr-5 text-xl text-gray-500">{{ curPage }}</p>
       <button
-        v-if="items1.length > endNum && computed_items.length>endNum-1"
+        v-if="items1.length > endNum && computed_items.length > endNum - 1"
         class="m-2 rounded-lg border-2 border-gray-200 p-2 text-gray-500 shadow-md hover:border-gray-100 hover:text-gray-600"
         @click="nextPage"
       >
@@ -104,6 +107,7 @@ const query = `*[_type == "people"] {
   group,
   sort,
   links,
+  research,
   objective1,
   picPersonIn,
   rank

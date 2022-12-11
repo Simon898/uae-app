@@ -36,8 +36,13 @@ declare module 'vue-router/auto/routes' {
     '/[...404]': RouteRecordInfo<'/[...404]', '/:404(.*)', { 404: ParamValue<true> }, { 404: ParamValue<false> }>,
     '/[id]/[id]': RouteRecordInfo<'/[id]/[id]', '/:id/:id', { id: ParamValue<true>, id: ParamValue<true> }, { id: ParamValue<false>, id: ParamValue<false> }>,
     '/[id]/new': RouteRecordInfo<'/[id]/new', '/:id/new', { id: ParamValue<true> }, { id: ParamValue<false> }>,
+    '/academics': RouteRecordInfo<'/academics', '/academics', Record<never, never>, Record<never, never>>,
+    '/admisions': RouteRecordInfo<'/admisions', '/admisions', Record<never, never>, Record<never, never>>,
+    '/awards': RouteRecordInfo<'/awards', '/awards', Record<never, never>, Record<never, never>>,
+    '/master': RouteRecordInfo<'/master', '/master', Record<never, never>, Record<never, never>>,
     '/news': RouteRecordInfo<'/news', '/news', Record<never, never>, Record<never, never>>,
     '/people': RouteRecordInfo<'/people', '/people', Record<never, never>, Record<never, never>>,
+    '/phd': RouteRecordInfo<'/phd', '/phd', Record<never, never>, Record<never, never>>,
     '/researchGroup': RouteRecordInfo<'/researchGroup', '/researchGroup', Record<never, never>, Record<never, never>>,
   }
 }
