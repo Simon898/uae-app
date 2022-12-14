@@ -15,34 +15,34 @@
         </div>
       </div>
     </div>
+    <router-link to="/awards">
+      <img
+        class="ml-5 mt-3 h-5 w-5"
+        alt="Return"
+        src="./left-arrow-svgrepo-com.svg"
+      />
+    </router-link>
     <div class="flex justify-center content-center">
       <h1 class="text-gray-600 text-3xl font-medium mt-10">
-          Honors and Awards page
+          Faculty Honors
       </h1>
     </div>
-    <div class="flex justify-center content-center w-full mt-5 mb-5">
-    <img src="./Awards_pic.jpeg" alt="">
+    <div 
+    v-for="item in items1" :key="item.id"
+    class="grid grid-cols-1 w-10/12 mt-5 mb-5 mx-auto">
+    <a 
+    v-if="item.category == 'FH'"
+    :href="item.link">
+    <div 
+    v-if="item.category == 'FH'"
+    class="text-xl font-light">
+       <span class="hover:border-b-2 border-gray-600 mb-5"> {{item.title}} </span>
     </div>
-    <div class="text-center">
-        <div>
-        <router-link to="/bestpaper">
-        <p class="text-2xl font-light text-gray-600 mb-6"> <span class="hover:border-b-2 border-gray-600"> Best Paper Awards</span></p>
-        </router-link>
-    </div>
-    <div>
-        <router-link to="/facultyawards">
-        <p class="text-2xl font-light text-gray-600 mb-6"> <span class="hover:border-b-2 border-gray-600"> Faculty Awards</span></p>
-    </router-link>
-    </div>
-    <div>
-        <router-link to="/facultyhonors">
-        <p class="text-2xl font-light text-gray-600 mb-6"> <span class="hover:border-b-2 border-gray-600"> Faculty Honors</span></p>
-    </router-link>
-    </div>
-    <div>
-        <router-link to="/studenthonor">
-        <p class="text-2xl font-light text-gray-600 mb-6"> <span class="hover:border-b-2 border-gray-600"> Student Awards</span> </p>
-    </router-link>
+    </a>
+    <div 
+    v-if="item.category == 'FH'"
+    class="mt-3">
+        <SanityBlocks :blocks="item.description" /> 
     </div>
     </div>
     <Footer></Footer>

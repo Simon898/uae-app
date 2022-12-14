@@ -15,6 +15,7 @@
         </div>
       </div>
     </div>
+    <div class="2xl:w-10/12 mx-auto">
     <div class="p-2 text-xl font-light text-gray-600">
       Filter:
       <select v-model="people" class="rounded-lg">
@@ -49,7 +50,7 @@
             <p class="p-5 text-xl text-gray-600">{{ item.name }}</p>
           </router-link>
           <div class="h-20 pl-5">{{ item.position }}</div>
-          <div class="text-sm pl-5 pr-5 font-light h-auto md:h-40">
+          <div class="text-xs pl-5 pr-5 font-light h-auto md:h-40">
           <SanityBlocks :blocks=item.research />
           </div>
           <div class="pl-5 text-blue-400">
@@ -89,7 +90,8 @@
         Next
       </button>
     </div>
-    <Footer></Footer>
+  </div>
+  <Footer></Footer>
   </div>
 </template>
 

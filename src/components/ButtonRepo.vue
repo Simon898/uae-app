@@ -29,8 +29,7 @@
       </router-link>
     </div>
     <div class="font-extrabold text-gray-100 sm:inline">
-      <router-link to="/academics" class="hover:underline hover:underline-offset-2"
-        >
+     
         <div class="relative group">
       <button class="flex flex-row items-center w-full font-bold text-left bg-transparent rounded-lg focus:outline-none">
           <span>Academics</span>
@@ -39,26 +38,25 @@
           
           <div class="px-2 pt-2 pb-4 bg-gray-100 text-gray-600 shadow-lg">
             <div class="grid grid-cols-1 gap-4">
-              <router-link to="/master">
+              <a href="https://mbzuai.ac.ae/study/msc-programs/">
               <p class="font-light hover:font-semibold">
                 Master's programs
               </p>
-            </router-link>
-            <router-link to="/phd">
+            </a>
+            <a href="https://mbzuai.ac.ae/study/phd-programs/">
               <p class="font-light hover:font-semibold">
                 Ph.D. programs
               </p>
-            </router-link>
-              <router-link to="/admisions">
+            </a>
+              <a href="https://mbzuai.ac.ae/study/admission-process/">
               <p class="font-light hover:font-semibold">
                 Admission process
               </p>
-            </router-link>
+            </a>
             </div>
           </div>
       </div>
-  </div>   
-      </router-link>
+  </div> 
     </div>
   </div>
 </template>
