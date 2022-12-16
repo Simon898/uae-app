@@ -2,12 +2,6 @@
   <div
     class="mt-3 grid grid-cols-1 text-center sm:grid-rows-none md:grid-flow-col md:gap-10"
   >
-    <!-- <div class="ml-3 inline-flex rounded-md shadow bg-white"> -->
-    <div
-      class="font-extrabold text-gray-100 hover:underline hover:underline-offset-2 sm:inline"
-    >
-      <router-link to="/" class="sm:inline">Home</router-link>
-    </div>
     <div
       class="font-extrabold text-gray-100 hover:underline hover:underline-offset-2 sm:inline"
     >
@@ -31,9 +25,9 @@
     <div class="font-extrabold text-gray-100 sm:inline">
      
         <div class="relative group">
-      <button class="flex flex-row items-center w-full font-bold text-left bg-transparent rounded-lg focus:outline-none">
-          <span>Academics</span>
-      </button>
+      <div class="font-extrabold text-gray-100 sm:inline">
+          Academics
+      </div>
       <div class="absolute z-10 hidden bg-grey-200 group-hover:block">
           
           <div class="px-2 pt-2 pb-4 bg-gray-100 text-gray-600 shadow-lg">

@@ -100,6 +100,7 @@ export default {
 
 <template>
   <div>
+   
     <div
       v-if="!changeNav"
       style="
@@ -109,7 +110,7 @@ export default {
       <div
         class="mx-auto max-w-screen-xl px-4 py-4 sm:px-6 lg:flex lg:items-center lg:justify-between lg:py-4 lg:px-8"
       >
-        <img src="./image-31.svg" class="" />
+      <router-link to="/"> <img src="./image-31.svg" class="" /></router-link>
         <div>
           <ButtonRepo />
         </div>
