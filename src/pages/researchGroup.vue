@@ -33,12 +33,15 @@
             <h1 class="absolute top-5 left-5 text-2xl text-gray-500">
               {{ item.title }}
             </h1>
-            <span
-              class="absolute bottom-3 left-1/2 mb-3 pl-10 w-full -translate-x-1/2 text-xl text-gray-800 bg-gray-300 opacity-60"
+            <!-- <span
+              class="absolute bottom-3 left-1/2 mb-3 pl-10 w-full -translate-x-1/2 text-xl font-light h-9 text-gray-800 bg-gray-300 opacity-60"
+            > -->
+            <div
+              class="pl-7 text-xl font-light h-9 text-gray-800 bg-gray-300 opacity-60"
             >
               <SanityBlocks :blocks="item.objective" />
-            </span>
-            <p class="text-md pl-10 text-gray-700 bg-gray-300 opacity-60">
+            </div>
+            <p class="text-md pl-7 h-5 text-gray-700 bg-gray-300 opacity-60">
               Professor {{ item.professor }}
             </p>
           </a>

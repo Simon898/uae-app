@@ -81,7 +81,7 @@
       >
         Previous
       </button>
-      <p class="my-auto ml-5 mr-5 text-xl text-gray-500">{{ curPage }}</p>
+      <p class="my-auto ml-5 mr-5 text-xl text-gray-500">{{ curPage }} of {{ allPages }}</p>
       <button
         v-if="items1.length > endNum && computed_items.length > endNum - 1"
         class="m-2 rounded-lg border-2 border-gray-200 p-2 text-gray-500 shadow-md hover:border-gray-100 hover:text-gray-600"
@@ -131,6 +131,7 @@ export default {
     endNum: 8,
     perpage: 8,
     curPage: 1,
+    allPages: 0,
   }),
   created() {
     this.fetchData();
@@ -159,9 +160,6 @@ export default {
         }
       }
     },
-    functionName() {
-      console.log("pagination");
-    },
     imageUrlFor(source) {
       return imageBuilder.image(source);
     },
@@ -172,6 +170,11 @@ export default {
         (items1) => {
           this.loading = false;
           this.items1 = items1;
+          if (Number.isInteger((this.items1.length/8))) {
+            this.allPages = this.items1.length/8
+          } else {
+          this.allPages = ((this.items1.length/8)+1).toFixed(0)
+          }
           items1.sort((a, b) => a.rank - b.rank);
         },
         (error) => {

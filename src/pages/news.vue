@@ -88,9 +88,11 @@
       >
         Previous
       </button>
-      <p class="my-auto ml-5 mr-5 text-xl text-gray-500">{{ curPage }}</p>
+      <p class="my-auto ml-5 mr-5 text-xl text-gray-500">
+        {{ curPage }} of {{ allPages }}
+      </p>
       <button
-        v-if="items1.length > endNum"
+        v-if="items1.length > endNum && curPage != allPages"
         class="m-2 rounded-lg border-2 border-gray-200 p-2 text-gray-500 shadow-md hover:border-gray-100 hover:text-gray-600"
         @click="nextPage"
       >
@@ -133,6 +135,7 @@ export default {
     endNum: 3,
     perpage: 3,
     curPage: 1,
+    allPages: 0,
   }),
   created() {
     this.fetchData();
@@ -171,6 +174,11 @@ export default {
         (items1) => {
           this.loading = false;
           this.items1 = items1;
+          if (Number.isInteger(this.items1.length - 1) / 3) {
+            this.allPages = (this.items1.length - 1) / 3;
+          } else {
+            this.allPages = ((this.items1.length - 1) / 3 + 1).toFixed(0);
+          }
           items1.sort((a, b) => a.rank - b.rank);
         },
         (error) => {

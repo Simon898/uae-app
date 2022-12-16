@@ -52,7 +52,6 @@ export default {
       else {
       this.showNavbar = currentScrollPosition < this.lastScrollPosition;
       this.changeNav = true;
-      console.log(currentScrollPosition)
       // Set the current scroll position as the last scroll position
       this.lastScrollPosition = currentScrollPosition;
     }
