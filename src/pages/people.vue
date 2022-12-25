@@ -9,89 +9,91 @@
       <div
         class="mx-auto max-w-screen-xl px-4 py-4 sm:px-6 lg:flex lg:items-center lg:justify-between lg:py-4 lg:px-8"
       >
-      <router-link to="/"> <img src="./image-31.svg" class="" /></router-link>
+        <router-link to="/"> <img src="./image-31.svg" class="" /></router-link>
         <div>
           <ButtonRepo />
         </div>
       </div>
     </div>
-    <div class="2xl:w-10/12 mx-auto">
-    <div class="p-2 text-xl font-light text-gray-600">
-      Filter:
-      <select v-model="people" class="rounded-lg">
-        <option value="Allpeople">All people</option>
-        <option value="Professors">Professors</option>
-        <option value="Students">Students</option>
-        <option value="ResearchScientists">Research scientists</option>
-        <option value="UniversityAffiliate">University Affiliate</option>
-        <option value="Postdoctoral">Postdoctoral Fellow</option>
-        <option value="Adminstaff">Administrative Staff</option>
-        <option value="FormerMemeber">Former Members</option>
-        <option value="Alumni">Alumni</option>
-      </select>
-    </div>
-    <div
-      class="p-3 md:grid md:grid-cols-2 md:gap-2 lg:grid-cols-3 xl:grid-cols-4"
-    >
-      <!-- <p>{{computed_items}}</p> -->
-      <body
-        class=""
-        v-for="item in computed_items.slice(startNum, endNum)"
-        :key="item.id"
+    <div class="mx-auto 2xl:w-10/12">
+      <div class="p-2 text-xl font-light text-gray-600">
+        Filter:
+        <select v-model="people" class="rounded-lg" @change="countPeople()">
+          <option value="Allpeople">All people</option>
+          <option value="Professors">Professors</option>
+          <option value="Students">Students</option>
+          <option value="ResearchScientists">Research scientists</option>
+          <option value="UniversityAffiliate">University Affiliate</option>
+          <option value="Postdoctoral">Postdoctoral Fellow</option>
+          <option value="Adminstaff">Administrative Staff</option>
+          <option value="FormerMemeber">Former Members</option>
+          <option value="Alumni">Alumni</option>
+        </select>
+      </div>
+      <div
+        class="p-3 md:grid md:grid-cols-2 md:gap-2 lg:grid-cols-3 xl:grid-cols-4"
       >
-        <div
-          class="w-content sm:md-0 mt-5 max-w-lg rounded-lg border-0 shadow-md hover:shadow-xl"
+        <!-- <p>{{computed_items}}</p> -->
+        <body
+          class=""
+          v-for="item in computed_items.slice(startNum, endNum)"
+          :key="item.id"
         >
-          <img
-            :src="imageUrlFor(item.picPersonIn)"
-            class="mx-auto rounded-lg rounded-b-none md:h-72 md:w-full"
-          />
-          <router-link :to="`${item._id}/${item._id}`">
-            <p class="p-5 text-xl text-gray-600">{{ item.name }}</p>
-          </router-link>
-          <div class="h-20 pl-5">{{ item.position }}</div>
-          <div class="text-xs pl-5 pr-5 font-light h-auto md:h-40">
-          <SanityBlocks :blocks=item.research />
-          </div>
-          <div class="pl-5 text-blue-400">
-            {{ item.group }}
-          </div>
-          <a :href="item.links.linkName">
-            <div class="mt-5 pl-3">
-              <div
-                class="m-2 inline w-1/4 rounded-lg border-2 border-l-8 border-l-green-600"
-              >
-                {{ item.links.linkShort }}
-              </div>
+          <div
+            class="w-content sm:md-0 mt-5 max-w-lg rounded-lg border-0 shadow-md hover:shadow-xl"
+          >
+            <img
+              :src="imageUrlFor(item.picPersonIn)"
+              class="mx-auto rounded-lg rounded-b-none md:h-72 md:w-full"
+            />
+            <router-link :to="`${item._id}/${item._id}`">
+              <p class="p-5 text-xl text-gray-600">{{ item.name }}</p>
+            </router-link>
+            <div class="h-20 pl-5">{{ item.position }}</div>
+            <div class="h-auto pl-5 pr-5 text-xs font-light md:h-40">
+              <SanityBlocks :blocks="item.research" />
             </div>
-          </a>
-          <!-- <div class=""> -->
-          <div class="mt-3 h-10 bg-gray-100 p-3 text-blue-500">
-            {{ item.sort }}
+            <div class="pl-5 text-blue-400">
+              {{ item.group }}
+            </div>
+            <a :href="item.links.linkName">
+              <div class="mt-5 pl-3">
+                <div
+                  class="m-2 inline w-1/4 rounded-lg border-2 border-l-8 border-l-green-600"
+                >
+                  {{ item.links.linkShort }}
+                </div>
+              </div>
+            </a>
+            <!-- <div class=""> -->
+            <div class="mt-3 h-10 bg-gray-100 p-3 text-blue-500">
+              {{ item.sort }}
+            </div>
+            <!-- </div> -->
           </div>
-          <!-- </div> -->
-        </div>
-      </body>
+        </body>
+      </div>
+      <div class="mb-5 mt-5 flex content-center justify-center">
+        <button
+          v-if="curPage != 1"
+          class="m-2 rounded-lg border-2 border-gray-200 p-2 text-gray-500 shadow-md hover:border-gray-100 hover:text-gray-600"
+          @click="backPage"
+        >
+          Previous
+        </button>
+        <p class="my-auto ml-5 mr-5 text-xl text-gray-500">
+          {{ curPage }} of {{ allPages }}
+        </p>
+        <button
+          v-if="items1.length > endNum && computed_items.length > endNum - 1"
+          class="m-2 rounded-lg border-2 border-gray-200 p-2 text-gray-500 shadow-md hover:border-gray-100 hover:text-gray-600"
+          @click="nextPage"
+        >
+          Next
+        </button>
+      </div>
     </div>
-    <div class="mb-5 mt-5 flex content-center justify-center">
-      <button
-        v-if="curPage != 1"
-        class="m-2 rounded-lg border-2 border-gray-200 p-2 text-gray-500 shadow-md hover:border-gray-100 hover:text-gray-600"
-        @click="backPage"
-      >
-        Previous
-      </button>
-      <p class="my-auto ml-5 mr-5 text-xl text-gray-500">{{ curPage }} of {{ allPages }}</p>
-      <button
-        v-if="items1.length > endNum && computed_items.length > endNum - 1"
-        class="m-2 rounded-lg border-2 border-gray-200 p-2 text-gray-500 shadow-md hover:border-gray-100 hover:text-gray-600"
-        @click="nextPage"
-      >
-        Next
-      </button>
-    </div>
-  </div>
-  <Footer></Footer>
+    <Footer></Footer>
   </div>
 </template>
 
@@ -170,10 +172,10 @@ export default {
         (items1) => {
           this.loading = false;
           this.items1 = items1;
-          if (Number.isInteger((this.items1.length/8))) {
-            this.allPages = this.items1.length/8
+          if (Number.isInteger(this.items1.length / 8)) {
+            this.allPages = this.items1.length / 8;
           } else {
-          this.allPages = ((this.items1.length/8)+1).toFixed(0)
+            this.allPages = (this.items1.length / 8 + 1).toFixed(0);
           }
           items1.sort((a, b) => a.rank - b.rank);
         },
@@ -181,6 +183,13 @@ export default {
           this.error = error;
         }
       );
+    },
+    countPeople() {
+      if (Number.isInteger(this.computed_items.length / 8)) {
+            this.allPages = this.computed_items.length / 8;
+          } else {
+            this.allPages = (this.computed_items.length / 8 + 1).toFixed(0);
+          }
     },
   },
   computed: {
