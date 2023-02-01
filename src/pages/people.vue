@@ -53,7 +53,7 @@
               {{ item.group }}
             </div>
             <a :href="item.links.linkName">
-              <div class="mt-5 pl-3">
+              <div class="mt-5 inline pl-3">
                 <div
                   class="m-2 inline w-1/4 rounded-lg border-2 border-l-8 border-l-green-600"
                 >
@@ -61,6 +61,19 @@
                 </div>
               </div>
             </a>
+            <div v-if="item.hashlinks" class="inline">
+              <a :href="item.hashlinks.linkName">
+              <div 
+              
+              class="mt-5 inline pl-3">
+                <div
+                  class="m-2 inline w-1/4 rounded-lg border-2 border-l-8 border-l-indigo-600"
+                >
+                  {{ item.hashlinks.linkShort }}
+                </div>
+              </div>
+            </a>
+            </div>
             <!-- <div class=""> -->
             <div class="mt-3 h-10 bg-gray-100 p-3 text-blue-500">
               {{ item.sort }}
@@ -89,7 +102,7 @@
         </button>
       </div>
     </div>
-      <Footer></Footer>
+    <Footer></Footer>
   </div>
 </template>
 
@@ -110,7 +123,8 @@ const query = `*[_type == "people"] {
   research,
   objective1,
   picPersonIn,
-  rank
+  rank,
+  hashlinks
 }`;
 
 export default {
@@ -126,8 +140,8 @@ export default {
     items1: [],
     isOpen: false,
     startNum: 0,
-    endNum: 8,
-    perpage: 8,
+    endNum: 9,
+    perpage: 9,
     curPage: 1,
     allPages: 0,
   }),
@@ -168,10 +182,10 @@ export default {
         (items1) => {
           this.loading = false;
           this.items1 = items1;
-          if (Number.isInteger(this.items1.length / 8)) {
-            this.allPages = this.items1.length / 8;
+          if (Number.isInteger(this.items1.length / 9)) {
+            this.allPages = this.items1.length / 9;
           } else {
-            this.allPages = (this.items1.length / 8 + 1).toFixed(0);
+            this.allPages = (this.items1.length / 9 + 1).toFixed(0);
           }
           items1.sort((a, b) => a.rank - b.rank);
         },

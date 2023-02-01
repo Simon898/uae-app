@@ -12,6 +12,7 @@ export default {
             {title: 'Strong', value: 'strong'},
             {title: 'Emphasis', value: 'em'},
             {title: 'Italic', value: 'italic'},
+            {title: 'Bullet', value: 'bullet'},
           ],
         },
       },

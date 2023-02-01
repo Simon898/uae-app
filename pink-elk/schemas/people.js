@@ -49,7 +49,7 @@ export default {
     {
       name: "link",
       type: "string",
-      title: "Webside link",
+      title: "Website link",
     },
     {
       name: "email",
@@ -57,7 +57,7 @@ export default {
       title: "Email Address",
     },
     {
-      title: "Social links",
+      title: "MBUZAI link",
       name: "links",
       type: "object",
       fields: [
@@ -66,7 +66,7 @@ export default {
       ],
     },
     {
-      title: "#Hashtag links",
+      title: "Personal link",
       name: "hashlinks",
       type: "object",
       fields: [

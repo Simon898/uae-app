@@ -7,21 +7,21 @@ export default {
       {
         name: 'title',
         type: 'string',
-        title: 'New title'
+        title: 'News title'
       },
       {
         name: 'shorttext',
         type: 'string',
-        title: 'Short description'
+        title: 'News short description'
       },
       {
         name: 'picGroup',
         type: 'image',
-        title: 'Picture of Group',
+        title: 'Picture of News',
       },
       {
         name: 'objective',
-        title: 'Group Description',
+        title: 'News Description',
         type: 'simpleBlockContent',
         
       },

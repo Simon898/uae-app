@@ -4,7 +4,7 @@
       style="
         background-image: url('https://mbzuai.ac.ae/wp-content/uploads/2022/07/hero_department-of-machine-learning.jpg');
       "
-      class="bg-cover sticky top-0"
+      class="sticky top-0 bg-cover"
     >
       <div
         class="mx-auto max-w-screen-xl px-4 py-4 sm:px-6 lg:flex lg:items-center lg:justify-between lg:py-4 lg:px-8"
@@ -22,77 +22,107 @@
         src="../left-arrow-svgrepo-com.svg"
       />
     </router-link>
-    <div 
-    class="mx-auto max-w-screen-xl"
-    v-for="item in items1"
-      :key="item.id">
-    <body
-    v-if="item._id == $route.params.id"
-      class="md:grid md:grid-cols-2 md:gap-4 bg-gray-50 md:mt-2 mx-auto max-w-screen-xl"
-    >
-      <div>
-        <img
-          :src="imageUrlFor(item.picPersonIn)"
-          class="m-3 mx-auto rounded-lg"
-          v-if="item._id == $route.params.id && item.picPersonIn"
-        />
-      </div>
-      <div>
-        <p
-          class="pl-5 text-start text-3xl font-light text-indigo-600"
-          v-if="item._id == $route.params.id"
-        >
-          {{ item.name }}
-        </p>
-        <p
-          v-if="item._id == $route.params.id"
-          class="mt-3 font-light text-gray-500"
-        >
-          {{ item.group }}
-        </p>
-        <a href="mailto:{{item.email}}">
+    <div class="mx-auto max-w-screen-xl" v-for="item in items1" :key="item.id">
+      <body
+        v-if="item._id == $route.params.id"
+        class="mx-auto max-w-screen-xl bg-gray-50 md:mt-2 md:grid md:grid-cols-2 md:gap-4"
+      >
+        <div>
+          <img
+            :src="imageUrlFor(item.picPersonIn)"
+            class="m-3 mx-auto rounded-lg"
+            v-if="item._id == $route.params.id && item.picPersonIn"
+          />
+        </div>
+        <div>
+          <p
+            class="pl-5 text-start text-3xl font-light text-indigo-600"
+            v-if="item._id == $route.params.id"
+          >
+            {{ item.name }}
+          </p>
           <p
             v-if="item._id == $route.params.id"
             class="mt-3 font-light text-gray-500"
           >
-            {{ item.email }}
+            {{ item.group }}
           </p>
-        </a>
-        <h2
-          v-if="item._id == $route.params.id"
-          class="mt-3 mb-3 pl-5 text-2xl text-gray-700"
-        >
-          Education Profile
-        </h2>
-        <div class="w-11/12 text-gray-500 font-light pl-5"
-        v-if="item._id == $route.params.id">
-          <SanityBlocks :blocks="item.education" />
-          <a :href="item.link">
-          <img 
-          v-if="item.link"
-          class="inline w-7 h-7 mr-4 mt-5" src="../connect.png" target="_blank" alt="">
+          <a href="mailto:{{item.email}}">
+            <p
+              v-if="item._id == $route.params.id"
+              class="mt-3 font-light text-gray-500"
+            >
+              {{ item.email }}
+            </p>
           </a>
-          <a :href="item.google" target="_blank">
-          <img v-if="item.google" class="inline w-7 h-7 mt-5" src="../google-scholar.png" alt="">
-        </a>
+          <h2
+            v-if="item._id == $route.params.id"
+            class="mt-3 mb-3 pl-5 text-2xl text-gray-700"
+          >
+            Education Profile
+          </h2>
+          <div
+            class="w-11/12 pl-5 font-light text-gray-500"
+            v-if="item._id == $route.params.id"
+          >
+            <SanityBlocks :blocks="item.education" />
+            <a :href="item.link">
+              <img
+                v-if="item.link"
+                class="mr-4 mt-5 inline h-7 w-7 mb-10"
+                src="../connect.png"
+                target="_blank"
+                alt=""
+              />
+            </a>
+            <a :href="item.google" target="_blank">
+              <img
+                v-if="item.google"
+                class="mt-5 inline h-7 w-7 mb-10"
+                src="../google-scholar.png"
+                alt=""
+              />
+            </a>
+          </div>
+          <div v-if="item.links" class="inline">
+            <a :href="item.links.linkName">
+              <div class="mt-3 inline pl-3">
+                <div
+                  class="inline w-1/4 rounded-lg border-2 border-l-8 border-l-green-600 mt-10"
+                >
+                  {{ item.links.linkShort }}
+                </div>
+              </div>
+            </a>
+          </div>
+          <div v-if="item.hashlinks" class="inline">
+            <a :href="item.hashlinks.linkName">
+              <div class="mt-5 inline pl-3">
+                <div
+                  class="m-2 inline w-1/4 rounded-lg border-2 border-l-8 border-l-indigo-600"
+                >
+                  {{ item.hashlinks.linkShort }}
+                </div>
+              </div>
+            </a>
+          </div>
         </div>
-      </div>
       </body>
     </div>
-      <div 
-      class="mx-auto max-w-screen-xl"
-      v-for="item in items1" :key="item.id">
+    <div class="mx-auto max-w-screen-xl" v-for="item in items1" :key="item.id">
       <div
         v-if="item._id == $route.params.id"
         class="mt-3 pl-5 font-light text-gray-500"
       >
         <SanityBlocks :blocks="item.objective1" />
-        <h2 class="mt-3 mb-3 text-2xl text-gray-700">Research Interests</h2>
+        <h2 class="mt-3 mb-3 text-2xl text-indigo-600">Research Interests</h2>
         <SanityBlocks :blocks="item.research" />
-        <h2 class="mt-3 text-2xl text-gray-700 mb-3">Selected publications</h2>
+        <h2 class="mt-3 mb-3 text-2xl text-indigo-600">
+          Selected publications
+        </h2>
         <div class="mb-10">
-        <SanityBlocks :blocks="item.selectPublic" />
-      </div>
+          <SanityBlocks :blocks="item.selectPublic" :serializers="item.selectPublic" />
+        </div>
       </div>
     </div>
     <Footer></Footer>
@@ -120,7 +150,9 @@ const query = `*[_type == "people"] {
   research,
   group,
   email,
-  google
+  google,
+  links,
+  hashlinks
 }`;
 
 export default {
