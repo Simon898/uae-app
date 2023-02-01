@@ -15,6 +15,7 @@
         </div>
       </div>
     </div>
+    <div class="mx-auto max-w-screen-xl">
     <div class="flex justify-center content-center">
       <h1 class="text-gray-600 text-3xl font-medium mt-10">
           Honors and Awards page
@@ -45,6 +46,7 @@
     </router-link>
     </div>
     </div>
+  </div>
     <Footer></Footer>
 </div>
   </template>

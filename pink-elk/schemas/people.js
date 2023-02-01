@@ -93,13 +93,13 @@ export default {
     },
     {
       name: "selectPublic",
-      title: "Selected Publicationss",
+      title: "Selected Publications",
       type: "simpleBlockContent",
     },
     {
-      name: "publications",
-      title: "Publications",
-      type: "simpleBlockContent",
+      name: "google",
+      title: "Google Scholar",
+      type: "string",
     },
     {
       title: "Related URLs",

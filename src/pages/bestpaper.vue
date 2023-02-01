@@ -15,6 +15,7 @@
         </div>
       </div>
     </div>
+    <div class="mx-auto max-w-screen-xl">
     <router-link to="/awards">
       <img
         class="ml-5 mt-3 h-5 w-5"
@@ -45,6 +46,7 @@
         <SanityBlocks :blocks="item.description" /> 
     </div>
     </div>
+  </div>
     <Footer></Footer>
 </div>
   </template>

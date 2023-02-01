@@ -22,11 +22,13 @@
         src="../left-arrow-svgrepo-com.svg"
       />
     </router-link>
-    <div v-for="item in items1"
+    <div 
+    class="mx-auto max-w-screen-xl"
+    v-for="item in items1"
       :key="item.id">
     <body
     v-if="item._id == $route.params.id"
-      class="md:grid md:grid-cols-2 md:gap-4 bg-gray-50 md:mt-2"
+      class="md:grid md:grid-cols-2 md:gap-4 bg-gray-50 md:mt-2 mx-auto max-w-screen-xl"
     >
       <div>
         <img
@@ -37,7 +39,7 @@
       </div>
       <div>
         <p
-          class="pl-5 text-start text-2xl font-light text-gray-700"
+          class="pl-5 text-start text-3xl font-light text-indigo-600"
           v-if="item._id == $route.params.id"
         >
           {{ item.name }}
@@ -65,11 +67,21 @@
         <div class="w-11/12 text-gray-500 font-light pl-5"
         v-if="item._id == $route.params.id">
           <SanityBlocks :blocks="item.education" />
+          <a :href="item.link">
+          <img 
+          v-if="item.link"
+          class="inline w-7 h-7 mr-4 mt-5" src="../connect.png" target="_blank" alt="">
+          </a>
+          <a :href="item.google" target="_blank">
+          <img v-if="item.google" class="inline w-7 h-7 mt-5" src="../google-scholar.png" alt="">
+        </a>
         </div>
       </div>
       </body>
     </div>
-      <div v-for="item in items1" :key="item.id">
+      <div 
+      class="mx-auto max-w-screen-xl"
+      v-for="item in items1" :key="item.id">
       <div
         v-if="item._id == $route.params.id"
         class="mt-3 pl-5 font-light text-gray-500"
@@ -77,10 +89,10 @@
         <SanityBlocks :blocks="item.objective1" />
         <h2 class="mt-3 mb-3 text-2xl text-gray-700">Research Interests</h2>
         <SanityBlocks :blocks="item.research" />
-        <h2 class="mt-3 mb-3 text-2xl text-gray-700">Selected publications</h2>
+        <h2 class="mt-3 text-2xl text-gray-700 mb-3">Selected publications</h2>
+        <div class="mb-10">
         <SanityBlocks :blocks="item.selectPublic" />
-        <h2 class="mt-3 mb-3 text-2xl text-gray-700">Publications</h2>
-        <SanityBlocks :blocks="item.publications" />
+      </div>
       </div>
     </div>
     <Footer></Footer>
@@ -107,7 +119,8 @@ const query = `*[_type == "people"] {
   selectPublic,
   research,
   group,
-  email
+  email,
+  google
 }`;
 
 export default {

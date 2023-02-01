@@ -15,7 +15,7 @@
         </div>
       </div>
     </div>
-    <div class="mx-auto 2xl:w-10/12">
+    <div class="mx-auto max-w-screen-xl">
       <div class="p-2 text-xl font-light text-gray-600">
         Filter:
         <select v-model="people" class="rounded-lg" @change="countPeople()">
@@ -30,9 +30,7 @@
           <option value="Alumni">Alumni</option>
         </select>
       </div>
-      <div
-        class="p-3 md:grid md:grid-cols-2 md:gap-2 lg:grid-cols-3 xl:grid-cols-4"
-      >
+      <div class="p-3 md:grid md:grid-cols-2 md:gap-2 lg:grid-cols-3">
         <!-- <p>{{computed_items}}</p> -->
         <body
           class=""
@@ -47,7 +45,7 @@
               class="mx-auto rounded-lg rounded-b-none md:h-72 md:w-full"
             />
             <router-link :to="`${item._id}/${item._id}`">
-              <p class="p-5 text-xl text-gray-600">{{ item.name }}</p>
+              <p class="p-5 text-xl text-indigo-600">{{ item.name }}</p>
             </router-link>
             <div class="h-20 pl-5">{{ item.position }}</div>
             <div class="h-auto pl-5 pr-5 text-xs font-light md:h-40">
@@ -93,7 +91,16 @@
         </button>
       </div>
     </div>
-    <Footer></Footer>
+    <div v-if="computed_items.slice(startNum, endNum).length > 4">
+      <Footer></Footer>
+    </div>
+    <div
+      v-if="computed_items.slice(startNum, endNum).length < 4"
+      class="md:absolute md:inset-x-0 md:bottom-0"
+    >
+      >
+      <Footer></Footer>
+    </div>
   </div>
 </template>
 
@@ -186,10 +193,10 @@ export default {
     },
     countPeople() {
       if (Number.isInteger(this.computed_items.length / 8)) {
-            this.allPages = this.computed_items.length / 8;
-          } else {
-            this.allPages = (this.computed_items.length / 8 + 1).toFixed(0);
-          }
+        this.allPages = this.computed_items.length / 8;
+      } else {
+        this.allPages = (this.computed_items.length / 8 + 1).toFixed(0);
+      }
     },
   },
   computed: {

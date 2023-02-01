@@ -16,7 +16,7 @@
       </div>
     </div>
     <div class="mt-5 flex content-center justify-center md:mt-10">
-      <section class="w-10/12">
+      <section class="max-w-screen-xl mx-auto">
         <div v-for="item in items1.slice(0, 1)" :key="item.id">
           <div class="grid md:grid-cols-2">
             <div>

@@ -142,7 +142,9 @@ export default {
         </div>
       </div>
     </div>
-    <body v-for="item in items1" :key="item.id">
+    <body 
+    class="max-w-screen-xl mx-auto"
+    v-for="item in items1" :key="item.id">
       <p
         class="mx-auto mt-10 w-9/12 text-justify text-2xl font-light text-gray-600"
       >
