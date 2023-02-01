@@ -91,16 +91,7 @@
         </button>
       </div>
     </div>
-    <div v-if="computed_items.slice(startNum, endNum).length > 4">
       <Footer></Footer>
-    </div>
-    <div
-      v-if="computed_items.slice(startNum, endNum).length < 4"
-      class="md:absolute md:inset-x-0 md:bottom-0"
-    >
-      >
-      <Footer></Footer>
-    </div>
   </div>
 </template>
 
