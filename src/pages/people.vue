@@ -20,7 +20,7 @@
         Filter:
         <select v-model="people" class="rounded-lg" @change="countPeople()">
           <option value="Allpeople">All people</option>
-          <option value="Professors">Faculty</option>
+          <option value="Faculty">Faculty</option>
           <option value="Students">Students</option>
           <option value="ResearchScientists">Research scientists</option>
           <option value="UniversityAffiliate">University Affiliate</option>
