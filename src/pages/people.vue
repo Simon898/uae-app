@@ -47,7 +47,7 @@
             </router-link>
             <div class="h-20 pl-5">{{ item.position }}</div>
             <div class="h-auto pl-5 pr-5 text-xs font-light md:h-40">
-              <SanityBlocks :blocks="item.research" />
+              <SanityBlocks :blocks="item.objective" />
             </div>
             <div class="pl-5 text-blue-400">
               {{ item.group }}
