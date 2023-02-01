@@ -114,9 +114,9 @@
         v-if="item._id == $route.params.id"
         class="mt-3 pl-5 font-light text-gray-500"
       >
-        <SanityBlocks :blocks="item.objective1" />
+        <!-- <SanityBlocks :blocks="item.objective1" /> -->
         <h2 class="mt-3 mb-3 text-2xl text-indigo-600">Research Interests</h2>
-        <SanityBlocks :blocks="item.research" serializers="list" />
+        <SanityBlocks :blocks="item.research" />
         <h2 class="mt-3 mb-3 text-2xl text-indigo-600">
           Selected publications
         </h2>
@@ -125,14 +125,17 @@
             :blocks="item.selectPublic"
             serializers=""
           />
-          <!-- <div v-for="data in item.selectPublic" :key="data.id">
-        <div v-for="data1 in data.children" :key="data1.id">
-          <li class="text-left"> {{ data1.text }} </li>
         </div>
-      </div> -->
-        </div>
+        <h2 class="mt-3 mb-3 text-2xl text-indigo-600">
+          Bio
+        </h2>
+        <div class="mb-10">
+        <SanityBlocks
+          :blocks="item.objective" />
+          </div>      
       </div>
     </div>
+    
     <Footer></Footer>
   </div>
 </template>
@@ -160,7 +163,8 @@ const query = `*[_type == "people"] {
   email,
   google,
   links,
-  hashlinks
+  hashlinks,
+  publications1
 }`;
 
 export default {
@@ -168,6 +172,13 @@ export default {
     SanityBlocks,
   },
   data: () => ({
+    // serializers: {
+    //   marks: {
+    //     itemList: ({children, mark }) => (
+    //       <li>{mark}</li>
+    //     ),
+    //   }
+    // },
     drawer: null,
     selectedItem: undefined,
     choosen: -1,

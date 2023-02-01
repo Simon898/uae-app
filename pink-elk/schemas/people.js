@@ -118,5 +118,13 @@ export default {
       type: "string",
       title: "Webside position",
     },
+    {
+      name: "publications1",
+      title: 'Publications',
+      type: "array",
+      of: [
+        {type: 'block'}
+      ]
+    }
   ],
 };
