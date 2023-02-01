@@ -32,12 +32,10 @@ export default {
       type: 'string',
       options: {
         list: [
-          "Professors",
+          "Faculty",
           "Students",
           "ResearchScientists",
-          "Postdoctoral",
           "AdminStaff",
-          "FormerMemeber",
           "UniversityAffiliate",
           "Alumni"
         ],
