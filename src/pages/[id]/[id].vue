@@ -65,11 +65,11 @@
             class="w-11/12 pl-5 font-light text-gray-500"
             v-if="item._id == $route.params.id"
           >
-            <SanityBlocks :blocks="item.education" />
+            <SanityBlocks :blocks="item.education" serializers="listItem" />
             <a :href="item.link">
               <img
                 v-if="item.link"
-                class="mr-4 mt-5 inline h-7 w-7 mb-10"
+                class="mr-4 mt-5 mb-10 inline h-7 w-7"
                 src="../connect.png"
                 target="_blank"
                 alt=""
@@ -78,7 +78,7 @@
             <a :href="item.google" target="_blank">
               <img
                 v-if="item.google"
-                class="mt-5 inline h-7 w-7 mb-10"
+                class="mt-5 mb-10 inline h-7 w-7"
                 src="../google-scholar.png"
                 alt=""
               />
@@ -88,7 +88,7 @@
             <a :href="item.links.linkName">
               <div class="mt-3 inline pl-3">
                 <div
-                  class="inline w-1/4 rounded-lg border-2 border-l-8 border-l-green-600 mt-10"
+                  class="mt-10 inline w-1/4 rounded-lg border-2 border-l-8 border-l-green-600"
                 >
                   {{ item.links.linkShort }}
                 </div>
@@ -116,12 +116,20 @@
       >
         <SanityBlocks :blocks="item.objective1" />
         <h2 class="mt-3 mb-3 text-2xl text-indigo-600">Research Interests</h2>
-        <SanityBlocks :blocks="item.research" />
+        <SanityBlocks :blocks="item.research" serializers="list" />
         <h2 class="mt-3 mb-3 text-2xl text-indigo-600">
           Selected publications
         </h2>
         <div class="mb-10">
-          <SanityBlocks :blocks="item.selectPublic" :serializers="item.selectPublic" />
+          <!-- <SanityBlocks
+            :blocks="item.selectPublic"
+            serializers=""
+          /> -->
+          <div v-for="data in item.selectPublic" :key="data.id">
+        <div v-for="data1 in data.children" :key="data1.id">
+          <li class="text-left"> {{ data1.text }} </li>
+        </div>
+      </div>
         </div>
       </div>
     </div>
