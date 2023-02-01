@@ -121,15 +121,15 @@
           Selected publications
         </h2>
         <div class="mb-10">
-          <!-- <SanityBlocks
+          <SanityBlocks
             :blocks="item.selectPublic"
             serializers=""
-          /> -->
-          <div v-for="data in item.selectPublic" :key="data.id">
+          />
+          <!-- <div v-for="data in item.selectPublic" :key="data.id">
         <div v-for="data1 in data.children" :key="data1.id">
           <li class="text-left"> {{ data1.text }} </li>
         </div>
-      </div>
+      </div> -->
         </div>
       </div>
     </div>
