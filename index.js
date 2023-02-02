@@ -5,6 +5,8 @@ const path = require('path')
 //initialise the express package
 const app = express()
 
+
+
 //use the serve-static package to serve the bundled app files in the dist directory
 app.use('/', serveStatic(path.join(__dirname, '/dist')))
 

@@ -65,7 +65,7 @@
             class="w-11/12 pl-5 font-light text-gray-500"
             v-if="item._id == $route.params.id"
           >
-            <SanityBlocks :blocks="item.education" serializers="listItem" />
+            <SanityBlocks :blocks="item.education" />
             <a :href="item.link">
               <img
                 v-if="item.link"
@@ -114,28 +114,41 @@
         v-if="item._id == $route.params.id"
         class="mt-3 pl-5 font-light text-gray-500"
       >
-        <!-- <SanityBlocks :blocks="item.objective1" /> -->
+      <h2 class="mt-3 mb-3 text-2xl text-indigo-600">
+          Bio
+        </h2>
+        <div class="mb-10">
+        <SanityBlocks
+          :blocks="item.objective"/>
+          </div>
         <h2 class="mt-3 mb-3 text-2xl text-indigo-600">Research Interests</h2>
         <SanityBlocks :blocks="item.research" />
         <h2 class="mt-3 mb-3 text-2xl text-indigo-600">
           Selected publications
         </h2>
-        <div class="mb-10">
+        <!-- <div class="mb-10">
           <SanityBlocks
             :blocks="item.selectPublic"
-            serializers=""
           />
+        </div> -->
+        <div class="mb-5">
+        <div 
+        v-for="item2 in item.selectPublic" :key="item2.id">
+          
+          <div v-for="item3 in item2.children" :key="item3.id">
+          <div v-if="item3.marks == 'strong'">
+         <span class="font-semibold"> {{ item3.text }} </span>
+         
+          </div>
+          <div v-if="item3.marks != 'strong' && item3.text != ''">
+          <li> {{ item3.text }} </li>
         </div>
-        <h2 class="mt-3 mb-3 text-2xl text-indigo-600">
-          Bio
-        </h2>
-        <div class="mb-10">
-        <SanityBlocks
-          :blocks="item.objective" />
-          </div>      
+        <!-- {{ item3 }} -->
+        </div>
       </div>
     </div>
-    
+      </div>
+    </div>
     <Footer></Footer>
   </div>
 </template>
@@ -144,6 +157,7 @@
 import sanity from "../../../client";
 import imageUrlBuilder from "@sanity/image-url";
 import { SanityBlocks } from "sanity-blocks-vue-component";
+import Links from '../../components/Links.vue'
 
 const imageBuilder = imageUrlBuilder(sanity);
 const query = `*[_type == "people"] {
@@ -167,18 +181,20 @@ const query = `*[_type == "people"] {
   publications1
 }`;
 
+
 export default {
-  components: {
-    SanityBlocks,
+  components: { SanityBlocks },
+  setup() {
+    const serializers = {
+      types: {
+        custom: Links,
+      },
+    };
+    return serializers;
   },
+
+  props: [],
   data: () => ({
-    // serializers: {
-    //   marks: {
-    //     itemList: ({children, mark }) => (
-    //       <li>{mark}</li>
-    //     ),
-    //   }
-    // },
     drawer: null,
     selectedItem: undefined,
     choosen: -1,
