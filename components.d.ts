@@ -7,13 +7,10 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    Block: typeof import('./src/components/Block.vue')['default']
     ButtonRepo: typeof import('./src/components/ButtonRepo.vue')['default']
-    Examplesix: typeof import('./src/components/examplesix.vue')['default']
     Footer: typeof import('./src/components/Footer.vue')['default']
     Links: typeof import('./src/components/Links.vue')['default']
-    List: typeof import('./src/components/List.vue')['default']
-    ListItem: typeof import('./src/components/ListItem.vue')['default']
-    PeopleSort: typeof import('./src/components/peopleSort.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }

@@ -4,7 +4,7 @@
       style="
         background-image: url('https://mbzuai.ac.ae/wp-content/uploads/2022/07/hero_department-of-machine-learning.jpg');
       "
-      class="bg-cover sticky top-0"
+      class="sticky top-0 bg-cover"
     >
       <div
         class="mx-auto max-w-screen-xl px-4 py-4 sm:px-6 lg:flex lg:items-center lg:justify-between lg:py-4 lg:px-8"
@@ -17,15 +17,16 @@
     </div>
     <router-link to="/news">
       <img
-        class="ml-5 md:ml-15 mt-3 h-5 w-5 md:h-10 md:w-10"
+        class="md:ml-15 ml-5 mt-3 h-5 w-5 md:h-10 md:w-10"
         alt="Return"
         src="../left-arrow-svgrepo-com.svg"
       />
     </router-link>
     <div v-for="item in items1" :key="item.id" class="mt-5 mb-5">
-      <div 
-      v-if="item._id == $route.params.id"
-      class="flex content-center justify-center">
+      <div
+        v-if="item._id == $route.params.id"
+        class="flex content-center justify-center"
+      >
         <div class="grid grid-cols-1">
           <div>
             <h1
@@ -38,7 +39,7 @@
           <div>
             <h2
               v-if="item._id == $route.params.id"
-              class="mt-5 mx-auto text-xl font-normal w-2/3 xl:w-2/4 text-gray-500 md:mt-10"
+              class="mx-auto mt-5 w-2/3 text-xl font-normal text-gray-500 md:mt-10 xl:w-2/4"
             >
               {{ item.shorttext }}
             </h2>
@@ -46,14 +47,15 @@
           <div>
             <img
               :src="imageUrlFor(item.picGroup)"
-              class="mx-auto mt-5 w-2/3 xl:w-2/4 rounded-lg md:mt-10"
+              class="mx-auto mt-5 w-2/3 rounded-lg md:mt-10 xl:w-2/4"
               v-if="item._id == $route.params.id && item.picGroup"
             />
           </div>
-          <div 
-          class="text-gray-500 w-2/3 xl:w-2/4 mx-auto mt-5 md:mt-10"
-          v-if="item._id == $route.params.id">
-            <SanityBlocks :blocks="item.objective" />
+          <div
+            class="mx-auto mt-5 w-2/3 text-gray-500 md:mt-10 xl:w-2/4"
+            v-if="item._id == $route.params.id"
+          >
+            <Block :data="item.objective" />
           </div>
         </div>
       </div>
@@ -65,7 +67,7 @@
 <script>
 import sanity from "../../../client";
 import imageUrlBuilder from "@sanity/image-url";
-import { SanityBlocks } from "sanity-blocks-vue-component";
+import Block from "../../components/Block.vue";
 
 const imageBuilder = imageUrlBuilder(sanity);
 const query = `*[_type == "news"] {
@@ -78,7 +80,7 @@ const query = `*[_type == "news"] {
 
 export default {
   components: {
-    SanityBlocks,
+    Block,
   },
   data: () => ({
     drawer: null,

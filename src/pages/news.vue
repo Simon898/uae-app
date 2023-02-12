@@ -9,14 +9,14 @@
       <div
         class="mx-auto max-w-screen-xl px-4 py-4 sm:px-6 lg:flex lg:items-center lg:justify-between lg:py-4 lg:px-8"
       >
-      <router-link to="/"> <img src="./image-31.svg" class="" /></router-link>
+        <router-link to="/"> <img src="./image-31.svg" class="" /></router-link>
         <div>
           <ButtonRepo />
         </div>
       </div>
     </div>
     <div class="mt-5 flex content-center justify-center md:mt-10">
-      <section class="max-w-screen-xl mx-auto">
+      <section class="mx-auto max-w-screen-xl">
         <div v-for="item in items1.slice(0, 1)" :key="item.id">
           <div class="grid md:grid-cols-2">
             <div>
@@ -108,7 +108,6 @@
 <script>
 import sanity from "../../client";
 import imageUrlBuilder from "@sanity/image-url";
-import { SanityBlocks } from "sanity-blocks-vue-component";
 
 const imageBuilder = imageUrlBuilder(sanity);
 const query = `*[_type == "news"] {
@@ -120,9 +119,7 @@ const query = `*[_type == "news"] {
 }`;
 
 export default {
-  components: {
-    SanityBlocks,
-  },
+  components: {},
   data: () => ({
     drawer: null,
     people: "Allpeople",

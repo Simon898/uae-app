@@ -1,7 +1,7 @@
 <script>
 import sanity from "../../client";
 import imageUrlBuilder from "@sanity/image-url";
-import { SanityBlocks } from "sanity-blocks-vue-component";
+import Block from "../components/Block.vue";
 import Footer1 from "../components/Footer.vue";
 
 const imageBuilder = imageUrlBuilder(sanity);
@@ -13,7 +13,7 @@ const query = `*[_type == "home"] {
 
 export default {
   components: {
-    SanityBlocks,
+    Block,
     Footer1,
   },
   data: () => ({
@@ -48,14 +48,12 @@ export default {
       // Here we determine whether we need to show or hide the navbar
       else if (currentScrollPosition == 0) {
         this.changeNav = false;
+      } else {
+        this.showNavbar = currentScrollPosition < this.lastScrollPosition;
+        this.changeNav = true;
+        // Set the current scroll position as the last scroll position
+        this.lastScrollPosition = currentScrollPosition;
       }
-      else {
-      this.showNavbar = currentScrollPosition < this.lastScrollPosition;
-      this.changeNav = true;
-      // Set the current scroll position as the last scroll position
-      this.lastScrollPosition = currentScrollPosition;
-    }
-      
     },
     orderList(item) {
       const prem = this.items1;
@@ -100,7 +98,6 @@ export default {
 
 <template>
   <div>
-   
     <div
       v-if="!changeNav"
       style="
@@ -110,7 +107,7 @@ export default {
       <div
         class="mx-auto max-w-screen-xl px-4 py-4 sm:px-6 lg:flex lg:items-center lg:justify-between lg:py-4 lg:px-8"
       >
-      <router-link to="/"> <img src="./image-31.svg" class="" /></router-link>
+        <router-link to="/"> <img src="./image-31.svg" class="" /></router-link>
         <div>
           <ButtonRepo />
         </div>
@@ -125,13 +122,13 @@ export default {
         Machine learning department
       </div>
     </div>
-    
-      <div
+
+    <div
       v-else
       style="
         background-image: url('https://mbzuai.ac.ae/wp-content/uploads/2022/07/hero_department-of-machine-learning.jpg');
       "
-      class="bg-cover sticky top-0"
+      class="sticky top-0 bg-cover"
     >
       <div
         class="mx-auto max-w-screen-xl px-4 py-4 sm:px-6 lg:flex lg:items-center lg:justify-between lg:py-4 lg:px-8"
@@ -142,9 +139,7 @@ export default {
         </div>
       </div>
     </div>
-    <body 
-    class="max-w-screen-xl mx-auto"
-    v-for="item in items1" :key="item.id">
+    <body class="mx-auto max-w-screen-xl" v-for="item in items1" :key="item.id">
       <p
         class="mx-auto mt-10 w-9/12 text-justify text-2xl font-light text-gray-600"
       >
@@ -163,9 +158,7 @@ export default {
         datasets. The university offers Ph.D. and master's degrees in machine
         learning with exceptionally advanced courses and outcomes.
       </p>
-      <!-- <span class="m-10 w-7/12 text-center text-2xl font-light text-gray-600"
-        ><SanityBlocks :blocks="item.objective"
-      /></span> -->
+
       <div class="bg-gray-100">
         <div class="mx-auto mt-5 w-9/12 gap-8 text-lg md:grid md:grid-cols-2">
           <div>

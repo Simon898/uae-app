@@ -47,7 +47,7 @@
             </router-link>
             <div class="h-20 pl-5">{{ item.position }}</div>
             <div class="h-auto pl-5 pr-5 text-xs font-light md:h-40">
-              <SanityBlocks :blocks="item.research" />
+              <Block :data="item.research" />
             </div>
             <div class="pl-5 text-blue-400">
               {{ item.group }}
@@ -63,16 +63,14 @@
             </a>
             <div v-if="item.hashlinks" class="inline">
               <a :href="item.hashlinks.linkName">
-              <div 
-              
-              class="mt-5 inline pl-3">
-                <div
-                  class="m-2 inline w-1/4 rounded-lg border-2 border-l-8 border-l-indigo-600"
-                >
-                  {{ item.hashlinks.linkShort }}
+                <div class="mt-5 inline pl-3">
+                  <div
+                    class="m-2 inline w-1/4 rounded-lg border-2 border-l-8 border-l-indigo-600"
+                  >
+                    {{ item.hashlinks.linkShort }}
+                  </div>
                 </div>
-              </div>
-            </a>
+              </a>
             </div>
             <!-- <div class=""> -->
             <div class="mt-3 h-10 bg-gray-100 p-3 text-blue-500">
@@ -109,7 +107,7 @@
 <script>
 import sanity from "../../client";
 import imageUrlBuilder from "@sanity/image-url";
-import { SanityBlocks } from "sanity-blocks-vue-component";
+import Block from "../components/Block.vue";
 
 const imageBuilder = imageUrlBuilder(sanity);
 const query = `*[_type == "people"] {
@@ -129,7 +127,7 @@ const query = `*[_type == "people"] {
 
 export default {
   components: {
-    SanityBlocks,
+    Block,
   },
   data: () => ({
     drawer: null,
