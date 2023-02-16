@@ -2,28 +2,8 @@
   <div class="mb-5">
     <ul>
       <div v-for="(item, ind) in adjustedData" :key="ind">
-        <p v-if="item.listItem != 'bullet'">
-          <span v-for="(child, childInd) in item.children" :key="childInd">
-            <a
-              class="font-medium text-indigo-600 hover:underline dark:text-indigo-500"
-              :href="child.href"
-              v-if="child.type == 'link'"
-            >
-              {{ child.text }}</a
-            >
-            <span
-              v-if="child.type == 'span'"
-              :class="{
-                italic: child.isItalic,
-                'font-bold': child.isStrong,
-              }"
-            >
-              {{ child.text }}</span
-            >
-          </span>
-        </p>
-        <div class="pl-4">
-          <li class="list-disc" v-if="item.listItem == 'bullet'">
+        <h1 class="mb-2 text-5xl font-bold" v-if="item.style == 'h1'">
+          <p v-if="item.listItem != 'bullet'">
             <span v-for="(child, childInd) in item.children" :key="childInd">
               <a
                 class="font-medium text-indigo-600 hover:underline dark:text-indigo-500"
@@ -42,7 +22,255 @@
                 {{ child.text }}</span
               >
             </span>
-          </li>
+          </p>
+          <div class="pl-4">
+            <li class="list-disc" v-if="item.listItem == 'bullet'">
+              <span v-for="(child, childInd) in item.children" :key="childInd">
+                <a
+                  class="font-medium text-indigo-600 hover:underline dark:text-indigo-500"
+                  :href="child.href"
+                  v-if="child.type == 'link'"
+                >
+                  {{ child.text }}</a
+                >
+                <span
+                  v-if="child.type == 'span'"
+                  :class="{
+                    italic: child.isItalic,
+                    'font-bold': child.isStrong,
+                  }"
+                >
+                  {{ child.text }}</span
+                >
+              </span>
+            </li>
+          </div>
+        </h1>
+        <h2 class="mb-2 text-4xl font-bold" v-if="item.style == 'h2'">
+          <p v-if="item.listItem != 'bullet'">
+            <span v-for="(child, childInd) in item.children" :key="childInd">
+              <a
+                class="font-medium text-indigo-600 hover:underline dark:text-indigo-500"
+                :href="child.href"
+                v-if="child.type == 'link'"
+              >
+                {{ child.text }}</a
+              >
+              <span
+                v-if="child.type == 'span'"
+                :class="{
+                  italic: child.isItalic,
+                  'font-bold': child.isStrong,
+                }"
+              >
+                {{ child.text }}</span
+              >
+            </span>
+          </p>
+          <div class="pl-4">
+            <li class="list-disc" v-if="item.listItem == 'bullet'">
+              <span v-for="(child, childInd) in item.children" :key="childInd">
+                <a
+                  class="font-medium text-indigo-600 hover:underline dark:text-indigo-500"
+                  :href="child.href"
+                  v-if="child.type == 'link'"
+                >
+                  {{ child.text }}</a
+                >
+                <span
+                  v-if="child.type == 'span'"
+                  :class="{
+                    italic: child.isItalic,
+                    'font-bold': child.isStrong,
+                  }"
+                >
+                  {{ child.text }}</span
+                >
+              </span>
+            </li>
+          </div>
+        </h2>
+        <h3 class="mb-2 text-3xl font-bold" v-if="item.style == 'h3'">
+          <p v-if="item.listItem != 'bullet'">
+            <span v-for="(child, childInd) in item.children" :key="childInd">
+              <a
+                class="font-medium text-indigo-600 hover:underline dark:text-indigo-500"
+                :href="child.href"
+                v-if="child.type == 'link'"
+              >
+                {{ child.text }}</a
+              >
+              <span
+                v-if="child.type == 'span'"
+                :class="{
+                  italic: child.isItalic,
+                  'font-bold': child.isStrong,
+                }"
+              >
+                {{ child.text }}</span
+              >
+            </span>
+          </p>
+          <div class="pl-4">
+            <li class="list-disc" v-if="item.listItem == 'bullet'">
+              <span v-for="(child, childInd) in item.children" :key="childInd">
+                <a
+                  class="font-medium text-indigo-600 hover:underline dark:text-indigo-500"
+                  :href="child.href"
+                  v-if="child.type == 'link'"
+                >
+                  {{ child.text }}</a
+                >
+                <span
+                  v-if="child.type == 'span'"
+                  :class="{
+                    italic: child.isItalic,
+                    'font-bold': child.isStrong,
+                  }"
+                >
+                  {{ child.text }}</span
+                >
+              </span>
+            </li>
+          </div>
+        </h3>
+
+        <h4 class="mb-2 text-2xl font-bold" v-if="item.style == 'h4'">
+          <p v-if="item.listItem != 'bullet'">
+            <span v-for="(child, childInd) in item.children" :key="childInd">
+              <a
+                class="font-medium text-indigo-600 hover:underline dark:text-indigo-500"
+                :href="child.href"
+                v-if="child.type == 'link'"
+              >
+                {{ child.text }}</a
+              >
+              <span
+                v-if="child.type == 'span'"
+                :class="{
+                  italic: child.isItalic,
+                  'font-bold': child.isStrong,
+                }"
+              >
+                {{ child.text }}</span
+              >
+            </span>
+          </p>
+          <div class="pl-4">
+            <li class="list-disc" v-if="item.listItem == 'bullet'">
+              <span v-for="(child, childInd) in item.children" :key="childInd">
+                <a
+                  class="font-medium text-indigo-600 hover:underline dark:text-indigo-500"
+                  :href="child.href"
+                  v-if="child.type == 'link'"
+                >
+                  {{ child.text }}</a
+                >
+                <span
+                  v-if="child.type == 'span'"
+                  :class="{
+                    italic: child.isItalic,
+                    'font-bold': child.isStrong,
+                  }"
+                >
+                  {{ child.text }}</span
+                >
+              </span>
+            </li>
+          </div>
+        </h4>
+
+        <blockquote
+          class="border-l-4 border-gray-300 pl-2"
+          v-if="item.style == 'blockquote'"
+        >
+          <p v-if="item.listItem != 'bullet'">
+            <span v-for="(child, childInd) in item.children" :key="childInd">
+              <a
+                class="font-medium text-indigo-600 hover:underline dark:text-indigo-500"
+                :href="child.href"
+                v-if="child.type == 'link'"
+              >
+                {{ child.text }}</a
+              >
+              <span
+                v-if="child.type == 'span'"
+                :class="{
+                  italic: child.isItalic,
+                  'font-bold': child.isStrong,
+                }"
+              >
+                {{ child.text }}</span
+              >
+            </span>
+          </p>
+          <div class="pl-4">
+            <li class="list-disc" v-if="item.listItem == 'bullet'">
+              <span v-for="(child, childInd) in item.children" :key="childInd">
+                <a
+                  class="font-medium text-indigo-600 hover:underline dark:text-indigo-500"
+                  :href="child.href"
+                  v-if="child.type == 'link'"
+                >
+                  {{ child.text }}</a
+                >
+                <span
+                  v-if="child.type == 'span'"
+                  :class="{
+                    italic: child.isItalic,
+                    'font-bold': child.isStrong,
+                  }"
+                >
+                  {{ child.text }}</span
+                >
+              </span>
+            </li>
+          </div>
+        </blockquote>
+
+        <div v-if="item.style == 'normal'">
+          <p v-if="item.listItem != 'bullet'">
+            <span v-for="(child, childInd) in item.children" :key="childInd">
+              <a
+                class="font-medium text-indigo-600 hover:underline dark:text-indigo-500"
+                :href="child.href"
+                v-if="child.type == 'link'"
+              >
+                {{ child.text }}</a
+              >
+              <span
+                v-if="child.type == 'span'"
+                :class="{
+                  italic: child.isItalic,
+                  'font-bold': child.isStrong,
+                }"
+              >
+                {{ child.text }}</span
+              >
+            </span>
+          </p>
+          <div class="pl-4">
+            <li class="list-disc" v-if="item.listItem == 'bullet'">
+              <span v-for="(child, childInd) in item.children" :key="childInd">
+                <a
+                  class="font-medium text-indigo-600 hover:underline dark:text-indigo-500"
+                  :href="child.href"
+                  v-if="child.type == 'link'"
+                >
+                  {{ child.text }}</a
+                >
+                <span
+                  v-if="child.type == 'span'"
+                  :class="{
+                    italic: child.isItalic,
+                    'font-bold': child.isStrong,
+                  }"
+                >
+                  {{ child.text }}</span
+                >
+              </span>
+            </li>
+          </div>
         </div>
       </div>
     </ul>
